@@ -11,24 +11,30 @@
 </head>
 <body>
     
+    <!-- Cabeçalho da pagina, o css dele está em header-nav.css-->
+
     <header>
+        <!-- Links -->
         <nav>
             <a href="index.html"><i class="fa-solid fa-house fa-xl"></i></a>
             <a href="index.html">Jogos</a>
             <a href="index.html">Sobre nós</a>
-            <a href="index.html">GitHub</a>
+            <a href="https://github.com/luiga1/Projeto-Web">GitHub</a>
         </nav>
-        <form>
-            <input type="text" name="caixa-pesquisa" placeholder="Pesquise por um jogo aqui" required id="caixa-pesquisa" >
-            <input type="submit" value="Pesquisar" id="submit">
+        <!-- Caixa de pesquisa -->
+        <form method="GET" action="https://www.google.com/search">
+            <input type="text" name="q" placeholder="Pesquise por um jogo aqui" required id="caixa-pesquisa" class="padding1">
+            <input type="submit" value="Pesquisar" id="submit" class="padding1">
         </form>
     </header>
 
     <div class="container-principal ">
+        <!-- Barra lateral, com o css em header-nav.css -->
         <nav class="padding2" id="barra-lateral">
             <p>uhafohapurhgrr</p>
         </nav>
     
+        <!-- Parte principal do site, o seu css está em index.css -->
         <main class="padding1">
             <div class="banners">
                 <article>
@@ -73,12 +79,6 @@
             </div>
         </main>
     </div>
-
-<!--
-    <footer>
-        <iframe src="rodape.html" title="description"></iframe>
-    </footer>
--->
 
 </body>
 </html>

@@ -26,18 +26,31 @@ header a{
     text-decoration: none;
 }
 
+header a:hover{
+    text-decoration: underline;
+}
+
 header input{
     margin: 0px 0.25vw;
 }
 
 #caixa-pesquisa{
-    padding: 0.15vh 0.15vw;
     width: 45%;
+    border: 1px solid transparent;
+    border-radius: 10px;
 }
 
 #submit{
-    padding: 0.15vh 0.15vw;
     width: 10%;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: var(--fundo);
+    background-color: #4ebc3b;
+}
+
+#submit:hover{
+    background-color: #429b33;
 }
 
 /* Nav */

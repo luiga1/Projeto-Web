@@ -1,8 +1,16 @@
+/*
+    Esse arquivo .css, está guardando algumas configurações básicas,
+    como a palheta de cores que pode ser facilmente modificada,
+    e as configurações de borda e padding
+*/
+
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
+
 /*
 :root {
 
