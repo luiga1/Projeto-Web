@@ -4,6 +4,40 @@ header{
     background-color: var(--header);
     width: 100%;
     height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header a{
+    color: var(--fundo);
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+header input{
+    margin: 0px 0.25vw;
+}
+
+#caixa-pesquisa{
+    padding: 0.15vh 0.15vw;
+    width: 45%;
+}
+
+#submit{
+    padding: 0.15vh 0.15vw;
+    width: 10%;
 }
 
 /* Nav */

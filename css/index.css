@@ -16,17 +16,14 @@ body{
     height: 100%; 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items : center;
+    justify-content: center;
 }
 
-.jogos{
-    width: 100%;
+.banners img{
     height: 35vh;
-}   
-
-.padding{
-    padding: 2vh 2vw;
 }
 
-img{
-    width: 100%;
+.banners img:hover{
+    height: 45vh;
 }

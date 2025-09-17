@@ -32,3 +32,11 @@
 --tiffany-blue: #7de2d1ff;
 --snow: #fffafbff;
 */
+
+.padding2{
+    padding: 2vh 2vw;
+}
+
+.padding1, .banners article{
+    padding: 1vh 1vw;
+}
