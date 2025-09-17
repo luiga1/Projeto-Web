@@ -58,4 +58,15 @@ header input{
 #barra-lateral{
     background-color: var(--nav);
     color: var(--texto);
+    font-weight: bold;
+}
+
+#barra-lateral a{
+    color: var(--texto);
+    text-decoration: none;
+}
+
+#barra-lateral a:hover{
+    color: var(--fundo);
+    text-decoration: underline;
 }
