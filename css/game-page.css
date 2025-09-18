@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    border: 0;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+img{
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+header{
+    background-color: red;
+    height: 10vh;
+    width: auto;
+}
+
+aside{
+    width: auto;
+    height: 100vh;
+    background-color: #26667F;
+
+}
+
+.page{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3vw 3vh;
+    padding: 3vw;
+}
+
+.img-game{
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.description{
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+.capa-game{
+    display: flex;
+    height: auto;
+    width: 100%;
+}
