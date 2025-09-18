@@ -1,72 +1,54 @@
-/* Header */
+body{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+aside{
+    background-color: var(--primary);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12.5vw;
+}
+
+main{
+    margin-left: 12.5vw;
+}
 
 header{
-    background-color: var(--header);
-    width: 100%;
+    background-color: var(--secondary);
+    width: 87.5vw;
     height: 10vh;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-}
+    grid-template-columns: 9fr 1fr;
 
-header nav{
-    display: flex;
     align-items: center;
-    justify-content: space-evenly;
 }
 
-header form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+form{
+    width: 50%;
+    justify-self: center;
 }
 
-header a{
-    color: var(--fundo);
-    font-weight: bolder;
-    text-decoration: none;
-}
-
-header a:hover{
-    text-decoration: underline;
-}
-
-header input{
-    margin: 0px 0.25vw;
-}
-
-#caixa-pesquisa{
-    width: 45%;
+#pesquisa{
+    padding: 10px;
+    width: 100%;
     border: 1px solid transparent;
     border-radius: 10px;
+    
 }
 
-#submit{
-    width: 10%;
+#login{
+    justify-self: center;
+    color: var(--primary);
+    font-size: larger;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--background);
+}
+
+#login:hover{
     font-weight: bold;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    color: var(--fundo);
-    background-color: #4ebc3b;
-}
-
-#submit:hover{
-    background-color: #429b33;
-}
-
-/* Nav */
-
-#barra-lateral{
-    background-color: var(--nav);
-    color: var(--texto);
-    font-weight: bold;
-}
-
-#barra-lateral a{
-    color: var(--texto);
-    text-decoration: none;
-}
-
-#barra-lateral a:hover{
-    color: var(--fundo);
-    text-decoration: underline;
 }

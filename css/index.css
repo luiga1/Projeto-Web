@@ -1,29 +1,6 @@
 body{
-    background-color: var(--fundo);
-    color: var(--texto);
+    background-color: var(--background);
+    color: var(--text);
     font-family: monospace;
     font-size: large;
-}
-
-.container-principal{
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    height: 90vh;
-}
-
-.banners{
-    width: 100%;
-    height: 100%; 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items : center;
-    justify-content: center;
-}
-
-.banners img{
-    height: 35vh;
-}
-
-.banners img:hover{
-    height: 45vh;
 }
