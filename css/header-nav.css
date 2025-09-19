@@ -21,7 +21,7 @@ header{
     width: 87.5vw;
     height: 10vh;
     display: grid;
-    grid-template-columns: 9fr 1fr;
+    grid-template-columns: 8fr 1fr;
 
     align-items: center;
 }
@@ -34,21 +34,31 @@ form{
 #pesquisa{
     padding: 10px;
     width: 100%;
-    border: 1px solid transparent;
+    border: none;
     border-radius: 10px;
     
 }
 
-#login{
+.botoes-header{
+
     justify-self: center;
-    color: var(--primary);
-    font-size: larger;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--background);
+    display: flex;
+
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
 }
 
-#login:hover{
+.links-header{
+    font-size: larger;
     font-weight: bold;
+    color: var(--text);
+    text-decoration: none;
+    margin: 10px;
+    background-color: var(--background);
+    border-radius: 10px;
+    padding: 10px 10px;
 }
