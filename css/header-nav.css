@@ -78,9 +78,33 @@ main{
 
 #links-laterais{
 
-    height: 80%;
     width: 80%;
-    background-color: black;
+    height: 100%;
+    margin-top: 2vh;
+    color: var(--background);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
 
+#links-laterais ul{
+    list-style-type: none;
+}
 
+#links-laterais div{
+    background-color: var(--text);
+    width: 100%;
+    height:min-content;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    margin-bottom: 2vh;
+}
+
+.margin1{
+    margin: 1vh 0px;
+}
+
+#links-laterais a{
+    color: var(--background);
+    text-decoration: none;
 }
