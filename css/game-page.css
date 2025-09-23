@@ -5,7 +5,7 @@
 
 body{
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr 7fr; 
 }
 
 img{
@@ -13,7 +13,7 @@ img{
     max-height: fit-content;
 }
 
-header{
+/*header{
     background-color: red;
     height: 10vh;
     width: auto;
@@ -24,7 +24,7 @@ aside{
     height: 100vh;
     background-color: #26667F;
 
-}
+}*/
 
 .page{
     display:grid;
@@ -39,6 +39,11 @@ aside{
     width: 100%;
 }
 
+.side-game{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vh;
+}
 .description{
     display: flex;
     font-family: 'Times New Roman', Times, serif;
@@ -56,4 +61,14 @@ aside{
 
 .coment{
     background-color: blue;
+    display: grid;
+}
+.content-head{
+    display: flex;
+    flex-direction: row;
+}
+.user-picture{
+    display: flex;
+    height: 10%;
+    width: auto;
 }
