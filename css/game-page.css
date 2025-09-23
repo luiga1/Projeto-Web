@@ -44,10 +44,16 @@ aside{
     font-family: 'Times New Roman', Times, serif;
 }
 
-
-
 .capa-game{
     display: flex;
     height: auto;
     width: 100%;
+}
+
+.coments{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.coment{
+    background-color: blue;
 }
