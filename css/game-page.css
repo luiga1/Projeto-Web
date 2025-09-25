@@ -1,6 +1,11 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 7fr; 
+    grid-template-columns: 1fr 7fr;
+}
+
+.corpo{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 img{
@@ -8,24 +13,12 @@ img{
     max-height: fit-content;
 }
 
-/*header{
-    background-color: red;
-    height: 10vh;
-    width: auto;
-}
-
-aside{
-    width: auto;
-    height: 100vh;
-    background-color: #26667F;
-
-}*/
-
 .page{
     display:grid;
     grid-template-columns: 3fr 1fr;
     gap: 3vw 3vh;
     padding: 3vw;
+    padding-top: 12vh;
 }
 
 .img-game{
@@ -39,9 +32,11 @@ aside{
     grid-template-columns: 1fr;
     gap: 1vh;
 }
+
 .description{
     display: flex;
     font-family: 'Times New Roman', Times, serif;
+    margin-top: 3%;
 }
 
 .capa-game{
@@ -50,17 +45,14 @@ aside{
     width: 100%;
 }
 
-.coments{
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-}
-
 .coment{
-    background-color: blue;
-    display: grid;
+    background-color: rgb(156, 156, 213);
+    display: flex;
+    flex-direction: column;
+    
 }
 .content-head{
-    display: flex;
-    flex-direction: row;
+   display: flex;
 }
 .user-picture{
     display: flex;
