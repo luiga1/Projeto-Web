@@ -1,0 +1,14 @@
+div
+{
+    float: right;
+    background-color: #67bac0;
+    width: 83vw;
+    height: 4vh;
+}
+
+.txt
+{
+    font-family: monospace;
+    font-size: small;
+    text-align: center;
+}

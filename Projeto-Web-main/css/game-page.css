@@ -1,0 +1,61 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+}
+
+.corpo{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+img{
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+.page{
+    display:grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3vw 3vh;
+    padding: 3vw;
+    padding-top: 12vh;
+}
+
+.img-game{
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.side-game{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vh;
+}
+
+.description{
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 3%;
+}
+
+.capa-game{
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.coment{
+    background-color: rgb(156, 156, 213);
+    display: flex;
+    flex-direction: column;
+    
+}
+.content-head{
+   display: flex;
+}
+.user-picture{
+    display: flex;
+    height: 10%;
+    width: auto;
+}
