@@ -1,7 +1,7 @@
 *.exe
 
-frontBros
-
 .vscode
 
 frontBros*
+
+jogos/filipe/raylib/
