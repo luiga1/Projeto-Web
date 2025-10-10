@@ -31,10 +31,6 @@
     margin: 1vh 0px;
 }
 
-.margin-main{
-    margin-left: 12.5vw;
-}
-
 .corpo-padrao{
     display: grid;
     grid-template-columns: 1fr 7fr;
