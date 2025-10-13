@@ -1,31 +1,9 @@
-/**function addSpan(text) {
+function addSpan() {
     const newSpan = document.createElement('span');
-    spanCount++;
-    newSpan.textContent = text;
+    newSpan.textContent = "spam adicionado ";
     container.appendChild(newSpan);
     console.log('Span adicionado!');
-} */
-
-/**function addComenthead(name){
-    const newDiv = document.createElement('div');
-    newDiv.className = 'coment-head'; //define a classe 
-    newDiv.id = 'coment-head'; // define o id da div
-
-    const img = document.createElement('img'); // cria a imagem do comentario
-    img.src = '../imagens/free-user-icon-svg.webp';
-    img.alt = usuario;
-    img.className = 'user-picture';
-
-    const nomeUsuario = document.createElement('span');
-    nomeUsuario.className = 'user-name';
-    nomeUsuario.textContent = name;
-
-    newDiv.appendChild(img);
-    newDiv.appendChild(nomeUsuario);
-    console.log('nome e imagem adicionado');
-
 }
- */
 
 function addComent() {
     //coment head + span(coment);
@@ -48,14 +26,14 @@ function addComent() {
 
     const nomeUsuario = document.createElement('span'); // cria o nome do usuario
     nomeUsuario.className = 'user-name';
-    nomeUsuario.textContent = 'nomezinho';
+    nomeUsuario.textContent = 'nomezinho safado';
 
-    const img = document.createElement('img'); // cria a imagem do comentario
-    img.src = '../imagens/free-user-icon-svg.webp';
-    img.alt = 'usuario';
-    img.className = 'user-picture';
+    const uimg = document.createElement('img'); // cria a imagem do comentario
+    uimg.src = 'https://i.pravatar.cc/100';
+    uimg.alt = 'usuario';
+    uimg.className = 'user-picture';
 
-    comentHead.appendChild(img);
+    comentHead.appendChild(uimg);
     comentHead.appendChild(nomeUsuario);
 
     // agr cria a div maior do comentario
@@ -64,7 +42,6 @@ function addComent() {
     newDiv.appendChild(newSpan); // cria uma div q tenha o comentario
 
     coment.appendChild(newDiv);
-    container.appendChild(coment);
     console.log('comentario adicionado!');
 
 }
@@ -100,4 +77,27 @@ window.addEventListener('scroll', () => {
                     </div>
 
                 </div>
+ */
+
+/**
+ * function addComenthead(name){
+    const newDiv = document.createElement('div');
+    newDiv.className = 'coment-head'; //define a classe 
+    newDiv.id = 'coment-head'; // define o id da div
+
+    const img = document.createElement('img'); // cria a imagem do comentario
+    img.src = '../imagens/free-user-icon-svg.webp';
+    img.alt = usuario;
+    img.className = 'user-picture';
+
+    const nomeUsuario = document.createElement('span');
+    nomeUsuario.className = 'user-name';
+    nomeUsuario.textContent = name;
+
+    newDiv.appendChild(img);
+    newDiv.appendChild(nomeUsuario);
+    console.log('nome e imagem adicionado');
+
+}
+ 
  */
