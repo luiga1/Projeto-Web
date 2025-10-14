@@ -8,7 +8,6 @@ function addSpan() {
 function addComent() {
     //coment head + span(coment);
     const container = document.getElementById('container');
-    const coment = document.getElementById('coments');
     const newDiv = document.createElement('div');
     const comentHead = document.createElement('div');
     const newSpan = document.createElement('span');
@@ -41,7 +40,7 @@ function addComent() {
     newDiv.appendChild(comentHead); // cria uma div q tem o nome e img
     newDiv.appendChild(newSpan); // cria uma div q tenha o comentario
 
-    coment.appendChild(newDiv);
+    container.appendChild(newDiv);
     console.log('comentario adicionado!');
 
 }
