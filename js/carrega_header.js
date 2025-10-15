@@ -51,4 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Carrega o aside (pega a tag <aside> de aside.html)
     carregarComponente("aside", "aside.html", "aside");
+
+    carregarComponente("footer", "rodape.html", "footer");
 });

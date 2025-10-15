@@ -1,9 +1,9 @@
-div
+footer
 {
     float: right;
     background-color: #67bac0;
-    width: 83vw;
-    height: 4vh;
+    width: 100%;
+
 }
 
 .txt
