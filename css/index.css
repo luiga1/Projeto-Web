@@ -1,23 +1,32 @@
-body{
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    grid-auto-rows: min-content;
-
-    grid-template-areas: "header header" "aside main";
-
-}
-
-#cabecalho{
-    grid-area: header;
+.container-principal{
+    display: flex;
 }
 
 #aside{
-    grid-area: aside;
+    position: fixed;
+    left: 0;
 }
 
+#footer{
+    position: fixed;
+    bottom: 0;
+}
 
 main{
-    grid-area: main;
+    margin-left: 260px;
+    margin-right: 1rem;
+    text-align: center;
+
+    flex: 1;
+}
+
+@media (max-width: 770px){
+
+    main{
+       margin-left: 20px; 
+    }
+
+    #aside{
+        display: none;
+    }
 }

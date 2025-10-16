@@ -1,8 +1,6 @@
 aside{
 
     background-color: var(--primary);
-    position: fixed;
-    left: 0;
 
     padding: 1rem;
 
@@ -11,7 +9,9 @@ aside{
     display: flex;
     flex-direction: column;
 
-    height: 100%;
+    height: 100vh;
+
+    width: 240px;
 }
 
 aside ul{
@@ -31,3 +31,21 @@ aside a{
     text-decoration: none;
 }
 
+aside a:hover, .btn-x:hover{
+    text-decoration: underline;
+}
+
+.btn-x-div{
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.btn-x{
+    text-align: right;
+
+    color: var(--background);
+    font-weight: bolder;
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
