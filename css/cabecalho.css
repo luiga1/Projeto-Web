@@ -61,7 +61,7 @@ header a:hover{
     filter: brightness(1.2);
 }
 
-@media (max-width: 720px){
+@media (max-width: 770px){
 
     .botoes-header{
         display: none;
