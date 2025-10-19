@@ -56,3 +56,7 @@
     border: none;
 
 }
+
+button, a{
+    cursor: pointer;
+}
