@@ -1,89 +1,278 @@
-function Peca(cor, tipo){
-    this.cor = cor
-    this.tipo = tipo
+class Peca{
+
+    constructor(cor, tipo){
+        this.cor = cor
+        this.tipo = tipo
+        this.selecionado = false;
+    }
 }
 
-function iniciarTabuleiro(){
+class Tabuleiro{
 
-    let tabuleiro = []
+    constructor(contanier, verbose){
+        // Guarda a divi mão onde vai ficar o tabuleiro
+        this.div = contanier
 
-    const primeira_linha = ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'];
+        this.verbose = verbose
 
-    for(let i = 0; i < 8; i++){
-        
-        let linha = [];
+        this.pecaSelecionada = null
 
-        for(let j = 0; j < 8; j++){
+        this.jogadorAtual = 'w'
 
-            if(i < 4){
-                cor = 'w'
-            }else{
-                cor = 'b'
-            }
+        this.pecas = this.iniciarTabuleiro()
 
-            if(i == 0 || i == 7){
-                linha.push( new Peca(cor, primeira_linha[j]))
-            }else if(i == 1 || i == 6){
-                linha.push( new Peca(cor, 'p'))
-            }else{
-                linha.push('0')
-            }
+        this.carregarPecas()
 
+        if(verbose){
+            console.log("Tabuleiro criado")
         }
-
-        tabuleiro.push(linha)
     }
 
-    return tabuleiro;
+    iniciarTabuleiro(){
 
-}
+       /*
+        Inicia a matriz que guarda as pecas do tabuleiro
+       */
 
-function desenharTabuleiro(tabuleiro, div){
+        let tabuleiro = []
 
-    div.innerHTML = '';
+        const primeira_linha = ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'];
 
-    for(linha in tabuleiro){
-        for(casa in tabuleiro[linha]){
-
-            let casaAtual = document.createElement('figure');
-
-            casaAtual.classList.add('casa')
-
-            if((parseInt(linha) + parseInt(casa)) % 2 == 0){
-                casaAtual.classList.add('branco')
-            }else{
-                casaAtual.classList.add('preto')
-            }
+        for(let i = 0; i < 8; i++){
             
-            if(tabuleiro[linha][casa] != '0'){
-                casaAtual.innerHTML = `<img src="../img/${tabuleiro[linha][casa].cor}-${tabuleiro[linha][casa].tipo}.png">`
+            let linha = [];
+
+            for(let j = 0; j < 8; j++){
+
+                let cor;
+
+                if(i > 4){
+                    cor = 'w'
+                }else{
+                    cor = 'b'
+                }
+
+                if(i == 0 || i == 7){
+                    linha.push(new Peca(cor, primeira_linha[j]))
+                }else if(i == 1 || i == 6){
+                    linha.push(new Peca(cor, 'p'))
+                }else{
+                    linha.push(null)
+                }
+
             }
 
-            div.appendChild(casaAtual);
+            tabuleiro.push(linha)
         }
+
+        return tabuleiro;
+
+    }
+
+    carregarCasas(){
+
+        /*
+            Carrega as casas no DOM, elas podem ser brancas, pretas ou verdes onde uma peça pode movimentar
+        */
+
+        let mapaMovimento = gerarMapaMovimentos(this.pecaSelecionada, this.pecas);
+
+        for(let i = 0; i< 8; i++){
+            for(let j = 0; j < 8; j++){
+
+                let row = parseInt(i)
+                let col = parseInt(j)
+
+                let casaAtual = this.div.children[row * 8 + col]
+
+                if(typeof casaAtual !== 'undefined'){
+
+                    casaAtual.classList = ''
+
+                }else{
+                    casaAtual = document.createElement('figure');
+
+                    this.div.appendChild(casaAtual); 
+                }
+
+                casaAtual.classList.add('casa')
+
+                if(mapaMovimento[row][col]){
+                    casaAtual.classList.add('possivel_movimento')
+                }else if((row + col) % 2 == 0){
+                    casaAtual.classList.add('branco')
+                }else{
+                    casaAtual.classList.add('preto')
+                }
+
+            }
+        }
+        
+
+    }
+
+    carregarPecas(){
+
+        /**
+         * Carrega as imagens das peças no DOM
+         */
+
+        this.carregarCasas()
+
+        let i = 0
+        for(let linha in this.pecas){
+            for(let casa in this.pecas[linha]){
+
+                let casas = this.div.children;
+                
+                if(this.pecas[linha][casa] != null){
+                    casas[i++].innerHTML = `<img src="../img/${this.pecas[linha][casa].cor}-${this.pecas[linha][casa].tipo}.png" alt="${linha}${casa}${this.pecas[linha][casa].cor}${this.pecas[linha][casa].tipo}">`
+                }else{
+                    casas[i++].innerHTML = ''
+                }
+
+            }
+        }
+    }
+
+    selecionarPeca(peca){
+
+        /**
+         * É chamado quando o usuário clica em uma peça para seleciona-la,
+         * é verificado se essa seleção é válida
+         */
+
+        if(peca.localName == 'img' && this.jogadorAtual == peca.alt[2]){
+            let alt = peca.alt;
+
+            this.pecaSelecionada = {row: parseInt(alt[0]), col: parseInt(alt[1]), cor: alt[2], tipo: alt[3]}
+            
+        }else{
+            this.pecaSelecionada = null;
+        }
+
+        this.carregarCasas()
+
+        console.log(this.pecaSelecionada)
     }
 
 }
 
-let tabuleiro;
+function lerCor(row, col, tab){
 
-function iniciarJogo(){
+    if(row < 0 || col < 0 || row >= 8 || col >= 8){
+        return null
+    }
 
-    const tab = document.querySelector('.tabuleiro');
+    if(tab[row][col] == null){
+        return null
+    }
 
-    tabuleiro = iniciarTabuleiro();
+    return tab[row][col].cor
 
-    desenharTabuleiro(tabuleiro, tab)
+}
+
+function gerarMapaMovimentos(peca, tabuleiro){
+
+    // Gera um mapa de movimentos para cada possível peça
+
+    let mapa = []
+    for(let i = 0; i < 8; i++){
+        mapa[i] = []
+        for(let j = 0; j < 8; j++){
+            mapa[i][j] = false;
+        }
+    }
     
-    console.log('Jogo resetado');
-    
+    if(peca == null){
+        return mapa
+    }
+
+    switch(peca.tipo){
+
+        // Peão
+        case 'p':
+            if(peca.cor == 'w'){
+
+                if(lerCor(peca.row-1, peca.col, tabuleiro) == null){
+                    mapa[peca.row - 1][peca.col] = true;
+
+                    if(lerCor(peca.row-2, peca.col, tabuleiro) == null && peca.row == 6){
+                        mapa[peca.row - 2][peca.col] = true;
+                    }
+                }
+
+                if(lerCor(peca.row-1, peca.col-1, tabuleiro) == 'b'){
+                    mapa[peca.row - 1][peca.col - 1] = true;
+                }
+
+                if(lerCor(peca.row-1, peca.col+1, tabuleiro) == 'b'){
+                    mapa[peca.row - 1][peca.col + 1] = true;
+                }
+
+            }
+            break;
+
+    }
+
+    return mapa;
+}
+
+function inserirPeca(tabuleiro){
+
+    /**
+     * Apenas para debug
+     */
+
+    const divTeste = document.querySelector('#teste');
+
+    divTeste.innerHTML = `
+    <label for="row">Linha: </label>
+    <input type="number" name="row" id="row">
+    <label for="col">Coluna: </label>
+    <input type="number" name="col" id="col">
+    <label for="tipo">Tipo: </label>
+    <input type="text" name="tipo" id="tipo">
+    <label for="cor">Cor: </label>
+    <input type="text" name="cor" id="cor">
+
+    <button id="enviar">Adicionar peça</button>`;
+
+    const botao = document.querySelector('#enviar');
+
+    botao.addEventListener('click', () =>{
+
+        let row = document.querySelector('#row').value;
+        let col = document.querySelector('#col').value;
+        let tipo = document.querySelector('#tipo').value;
+        let cor = document.querySelector('#cor').value;
+
+        row = parseInt(row)
+        col = parseInt(col)
+
+        tabuleiro.pecas[row][col] = new Peca(cor, tipo);
+
+        tabuleiro.carregarPecas();
+    })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Documento carregado");
-
     iniciarJogo();
 
 })
+
+function iniciarJogo(){
+
+    const tabuleiro = new Tabuleiro(document.querySelector('.tabuleiro'), true);
+
+    // É chamado quando alguém clica no tabuleiro
+    tabuleiro.div.addEventListener('click', (e) =>{
+
+        tabuleiro.selecionarPeca(e.target)
+    })
+
+    inserirPeca(tabuleiro)
+
+}
 
