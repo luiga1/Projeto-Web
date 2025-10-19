@@ -17,7 +17,7 @@ class Tabuleiro{
 
         this.pecaSelecionada = null
 
-        this.jogadorAtual = 'w'
+        this.jogadorAtual = 'b'
 
         this.pecas = this.iniciarTabuleiro()
 
@@ -169,10 +169,9 @@ function lerCor(row, col, tab){
     }
 
     return tab[row][col].cor
-
 }
-
-function gerarMapaMovimentos(peca, tabuleiro){
+// TODO: Passar função para o objeto tabuleiro para resolver o bug
+function gerarMapaMovimentos(peca, tab){
 
     // Gera um mapa de movimentos para cada possível peça
 
@@ -194,25 +193,80 @@ function gerarMapaMovimentos(peca, tabuleiro){
         case 'p':
             if(peca.cor == 'w'){
 
-                if(lerCor(peca.row-1, peca.col, tabuleiro) == null){
+                if(lerCor(peca.row-1, peca.col, tab) == null){
                     mapa[peca.row - 1][peca.col] = true;
 
-                    if(lerCor(peca.row-2, peca.col, tabuleiro) == null && peca.row == 6){
+                    if(lerCor(peca.row-2, peca.col, tab) == null && peca.row == 6){
                         mapa[peca.row - 2][peca.col] = true;
                     }
                 }
 
-                if(lerCor(peca.row-1, peca.col-1, tabuleiro) == 'b'){
+                if(lerCor(peca.row-1, peca.col-1, tab) == 'b'){
                     mapa[peca.row - 1][peca.col - 1] = true;
                 }
 
-                if(lerCor(peca.row-1, peca.col+1, tabuleiro) == 'b'){
+                if(lerCor(peca.row-1, peca.col+1, tab) == 'b'){
                     mapa[peca.row - 1][peca.col + 1] = true;
                 }
 
             }
-            break;
+            else{
 
+                if(lerCor(peca.row+1, peca.col, tab) == null){
+                    mapa[peca.row + 1][peca.col] = true;
+
+                    if(lerCor(peca.row+2, peca.col, tab) == null && peca.row == 1){
+                        mapa[peca.row + 2][peca.col] = true;
+                    }
+                }
+
+                if(lerCor(peca.row+1, peca.col-1, tab) == 'w'){
+                    mapa[peca.row + 1][peca.col - 1] = true;
+                }
+
+                if(lerCor(peca.row+1, peca.col+1, tab) == 'w'){
+                    mapa[peca.row + 1][peca.col + 1] = true;
+                }
+
+            }
+            break;
+        // Torre
+        case 'r':
+        
+            let i = peca.row + 1;
+
+            console.log(this.jogadorAtual)
+
+
+            while(i < 8 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row + 1 == i || lerCor(i - 1, peca.col, tab) === null)){
+                mapa[i][peca.col] = true;
+                i++;
+            }
+
+            i = peca.row - 1;
+            while(i >= 0 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) === null)){
+                mapa[i][peca.col] = true;
+                i++;
+            }
+            
+            // TODO: terminar de reescrever os for em whiles
+            for(let i = peca.row - 1; i >= 0; i--){
+                if(lerCor(i, peca.col, tab) != this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) == null)){
+                    mapa[i][peca.col] = true;
+                }
+            }
+            for(let j = peca.col + 1; j < 8; j++){
+                if(lerCor(peca.row, j, tab) != this.jogadorAtual && (peca.col + 1 == j || lerCor(peca.row, j - 1, tab) == null)){
+                    mapa[peca.row][j] = true;
+                }
+            }
+            /*
+            for(let j = peca.col - 1; j >= 0; j--){
+                if(lerCor(peca.row, j, tab) != this.jogadorAtual && (peca.col - 1 == j || lerCor(peca.row, j + 1, tab) == null)){
+                    mapa[peca.row][j] = true;
+                }
+            }
+            */
     }
 
     return mapa;
@@ -250,7 +304,11 @@ function inserirPeca(tabuleiro){
         row = parseInt(row)
         col = parseInt(col)
 
-        tabuleiro.pecas[row][col] = new Peca(cor, tipo);
+        if(tipo == 'null'){
+            tabuleiro.pecas[row][col] = null;
+        }else{
+            tabuleiro.pecas[row][col] = new Peca(cor, tipo);
+        }
 
         tabuleiro.carregarPecas();
     })
