@@ -77,25 +77,17 @@ class Tabuleiro{
 
         let mapaMovimento = this.gerarMapaMovimentos(this.pecaSelecionada);
 
+        this.div.innerHTML = ''
+
         for(let i = 0; i< 8; i++){
             for(let j = 0; j < 8; j++){
 
                 let row = parseInt(i)
                 let col = parseInt(j)
 
-                let casaAtual = this.div.children[row * 8 + col]
+                let casaAtual = document.createElement('figure');
 
-                if(typeof casaAtual !== 'undefined'){
-
-                    casaAtual.classList = ''
-
-                }else{
-                    casaAtual = document.createElement('figure');
-
-                    casaAtual.id = `${i}${j}`
-
-                    this.div.appendChild(casaAtual); 
-                }
+                casaAtual.id = `${i}${j}`
 
                 casaAtual.classList.add('casa')
 
@@ -106,6 +98,8 @@ class Tabuleiro{
                 }else{
                     casaAtual.classList.add('preto')
                 }
+
+                this.div.appendChild(casaAtual); 
 
             }
         }
@@ -184,7 +178,9 @@ class Tabuleiro{
             this.pecaSelecionada = null;
         }
 
-        this.carregarCasas()
+        this.carregarPecas()
+
+
     }
 
     gerarMapaMovimentos(peca){
@@ -438,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function iniciarJogo(){
 
-    const tabuleiro = new Tabuleiro(document.querySelector('.tabuleiro'), true);
+    let tabuleiro = new Tabuleiro(document.querySelector('.tabuleiro'), true);
 
     // É chamado quando alguém clica no tabuleiro
     tabuleiro.div.addEventListener('click', (e) =>{
@@ -447,6 +443,5 @@ function iniciarJogo(){
     })
 
     //inserirPeca(tabuleiro)
-
 }
 
