@@ -17,7 +17,7 @@ class Tabuleiro{
 
         this.pecaSelecionada = null
 
-        this.jogadorAtual = 'b'
+        this.jogadorAtual = 'w'
 
         this.pecas = this.iniciarTabuleiro()
 
@@ -75,7 +75,7 @@ class Tabuleiro{
             Carrega as casas no DOM, elas podem ser brancas, pretas ou verdes onde uma peça pode movimentar
         */
 
-        let mapaMovimento = gerarMapaMovimentos(this.pecaSelecionada, this.pecas);
+        let mapaMovimento = this.gerarMapaMovimentos(this.pecaSelecionada);
 
         for(let i = 0; i< 8; i++){
             for(let j = 0; j < 8; j++){
@@ -91,6 +91,8 @@ class Tabuleiro{
 
                 }else{
                     casaAtual = document.createElement('figure');
+
+                    casaAtual.id = `${i}${j}`
 
                     this.div.appendChild(casaAtual); 
                 }
@@ -152,8 +154,175 @@ class Tabuleiro{
         }
 
         this.carregarCasas()
+    }
 
-        console.log(this.pecaSelecionada)
+    gerarMapaMovimentos(peca){
+
+        // Gera um mapa de movimentos para cada possível peça
+        const tab = this.pecas
+
+        let mapa = []
+        for(let i = 0; i < 8; i++){
+            mapa[i] = []
+            for(let j = 0; j < 8; j++){
+                mapa[i][j] = false;
+            }
+        }
+        
+        if(peca == null){
+            return mapa
+        }
+
+        let i, j, k, l;
+
+        switch(peca.tipo){
+
+            // Peão
+            case 'p':
+                if(peca.cor == 'w'){
+
+                    if(lerCor(peca.row-1, peca.col, tab) == null){
+                        mapa[peca.row - 1][peca.col] = true;
+
+                        if(lerCor(peca.row-2, peca.col, tab) == null && peca.row == 6){
+                            mapa[peca.row - 2][peca.col] = true;
+                        }
+                    }
+
+                    if(lerCor(peca.row-1, peca.col-1, tab) == 'b'){
+                        mapa[peca.row - 1][peca.col - 1] = true;
+                    }
+
+                    if(lerCor(peca.row-1, peca.col+1, tab) == 'b'){
+                        mapa[peca.row - 1][peca.col + 1] = true;
+                    }
+
+                }
+                else{
+
+                    if(lerCor(peca.row+1, peca.col, tab) == null){
+                        mapa[peca.row + 1][peca.col] = true;
+
+                        if(lerCor(peca.row+2, peca.col, tab) == null && peca.row == 1){
+                            mapa[peca.row + 2][peca.col] = true;
+                        }
+                    }
+
+                    if(lerCor(peca.row+1, peca.col-1, tab) == 'w'){
+                        mapa[peca.row + 1][peca.col - 1] = true;
+                    }
+
+                    if(lerCor(peca.row+1, peca.col+1, tab) == 'w'){
+                        mapa[peca.row + 1][peca.col + 1] = true;
+                    }
+
+                }
+                break;
+            // Torre
+            case 'r':
+            
+                i = peca.row + 1;
+                while(i < 8 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row + 1 == i || lerCor(i - 1, peca.col, tab) === null)){
+                    mapa[i][peca.col] = true;
+                    i++;
+                }
+
+                i = peca.row - 1;
+                while(i >= 0 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) === null)){
+                    mapa[i][peca.col] = true;
+                    i--;
+                }
+
+                j = peca.col + 1;
+                while(j < 8 && lerCor(peca.row, j, tab) !== this.jogadorAtual && (peca.col + 1 == j || lerCor(peca.row, j - 1, tab) == null)){
+                    mapa[peca.row][j] = true;
+                    j++;
+                }
+                
+                j = peca.col - 1;
+                while(j >= 0 && lerCor(peca.row, j, tab) !== this.jogadorAtual && (peca.col - 1 == j || lerCor(peca.row, j + 1, tab) == null)){
+                    mapa[peca.row][j] = true;
+                    j--;
+                }
+                break;
+
+            // Bispo
+            case 'b':
+                
+                let combinacoes = [1, -1]
+
+                for(k in combinacoes){
+                    for(l in combinacoes){
+                        i = peca.row + combinacoes[k];
+                        j = peca.col + combinacoes[l];
+
+                        while(j < 8 && i < 8 && j >= 0 && i >= 0 && lerCor(i, j, tab) !== this.jogadorAtual && (peca.col + combinacoes[l] == j || lerCor(i - combinacoes[k], j - combinacoes[l], tab) == null)){
+                            mapa[i][j] = true;
+                            i += combinacoes[k];
+                            j += combinacoes[l];
+                        }
+                    }
+                }
+
+                break;
+
+
+            // Rainha
+            // Junção dos mapas da torre e bispo
+            case 'q':
+
+                let mapa_bispo = this.gerarMapaMovimentos({row: peca.row, col: peca.col, cor: peca.cor, tipo: 'b'})
+                let mapa_torre = this.gerarMapaMovimentos({row: peca.row, col: peca.col, cor: peca.cor, tipo: 'r'})
+
+                // Unindo os mapas
+                for(let line in mapa){
+                    for(let cell in mapa[line]){
+                        if(mapa_bispo[line][cell] || mapa_torre[line][cell]){
+                            mapa[line][cell] = true;
+                        }else{
+                            mapa[line][cell] = false;
+                        }
+                    }
+                }
+
+                break;
+
+            // Rei
+            case 'k':
+
+                let possibilidades = [-1, 0, 1]
+
+                for(k in possibilidades){
+                    for(l in possibilidades){
+                        i = peca.row + possibilidades[k];
+                        j = peca.col + possibilidades[l];
+                        if(lerCor(i, j, this.pecas) !== this.jogadorAtual && i >= 0 && j >=0 && i < 8 && j < 8 && (possibilidades[k] != 0 || possibilidades[l] != 0)){
+                            mapa[i][j] = true;
+                        }
+                    }
+                }
+
+                break;
+
+            // Cavalo
+            case 'n':
+
+                let possib = [1, -1, 2, -2]
+
+                for(k in possib){
+                    for(l in possib){
+                        i = peca.row + possib[k];
+                        j = peca.col + possib[l];
+                        if(lerCor(i, j, this.pecas) !== this.jogadorAtual && i >= 0 && j >=0 && i < 8 && j < 8 && Math.abs(possib[k]) !== Math.abs(possib[l])){
+                            mapa[i][j] = true;
+                        }
+                    }
+                }
+
+                break;
+        }
+
+        return mapa;
     }
 
 }
@@ -169,107 +338,6 @@ function lerCor(row, col, tab){
     }
 
     return tab[row][col].cor
-}
-// TODO: Passar função para o objeto tabuleiro para resolver o bug
-function gerarMapaMovimentos(peca, tab){
-
-    // Gera um mapa de movimentos para cada possível peça
-
-    let mapa = []
-    for(let i = 0; i < 8; i++){
-        mapa[i] = []
-        for(let j = 0; j < 8; j++){
-            mapa[i][j] = false;
-        }
-    }
-    
-    if(peca == null){
-        return mapa
-    }
-
-    switch(peca.tipo){
-
-        // Peão
-        case 'p':
-            if(peca.cor == 'w'){
-
-                if(lerCor(peca.row-1, peca.col, tab) == null){
-                    mapa[peca.row - 1][peca.col] = true;
-
-                    if(lerCor(peca.row-2, peca.col, tab) == null && peca.row == 6){
-                        mapa[peca.row - 2][peca.col] = true;
-                    }
-                }
-
-                if(lerCor(peca.row-1, peca.col-1, tab) == 'b'){
-                    mapa[peca.row - 1][peca.col - 1] = true;
-                }
-
-                if(lerCor(peca.row-1, peca.col+1, tab) == 'b'){
-                    mapa[peca.row - 1][peca.col + 1] = true;
-                }
-
-            }
-            else{
-
-                if(lerCor(peca.row+1, peca.col, tab) == null){
-                    mapa[peca.row + 1][peca.col] = true;
-
-                    if(lerCor(peca.row+2, peca.col, tab) == null && peca.row == 1){
-                        mapa[peca.row + 2][peca.col] = true;
-                    }
-                }
-
-                if(lerCor(peca.row+1, peca.col-1, tab) == 'w'){
-                    mapa[peca.row + 1][peca.col - 1] = true;
-                }
-
-                if(lerCor(peca.row+1, peca.col+1, tab) == 'w'){
-                    mapa[peca.row + 1][peca.col + 1] = true;
-                }
-
-            }
-            break;
-        // Torre
-        case 'r':
-        
-            let i = peca.row + 1;
-
-            console.log(this.jogadorAtual)
-
-
-            while(i < 8 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row + 1 == i || lerCor(i - 1, peca.col, tab) === null)){
-                mapa[i][peca.col] = true;
-                i++;
-            }
-
-            i = peca.row - 1;
-            while(i >= 0 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) === null)){
-                mapa[i][peca.col] = true;
-                i++;
-            }
-            
-            // TODO: terminar de reescrever os for em whiles
-            for(let i = peca.row - 1; i >= 0; i--){
-                if(lerCor(i, peca.col, tab) != this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) == null)){
-                    mapa[i][peca.col] = true;
-                }
-            }
-            for(let j = peca.col + 1; j < 8; j++){
-                if(lerCor(peca.row, j, tab) != this.jogadorAtual && (peca.col + 1 == j || lerCor(peca.row, j - 1, tab) == null)){
-                    mapa[peca.row][j] = true;
-                }
-            }
-            /*
-            for(let j = peca.col - 1; j >= 0; j--){
-                if(lerCor(peca.row, j, tab) != this.jogadorAtual && (peca.col - 1 == j || lerCor(peca.row, j + 1, tab) == null)){
-                    mapa[peca.row][j] = true;
-                }
-            }
-            */
-    }
-
-    return mapa;
 }
 
 function inserirPeca(tabuleiro){
