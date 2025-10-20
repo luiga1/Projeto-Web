@@ -144,12 +144,43 @@ class Tabuleiro{
          * é verificado se essa seleção é válida
          */
 
-        if(peca.localName == 'img' && this.jogadorAtual == peca.alt[2]){
+        // Pega o mapa de jogadas da peca selecionada anteriormente
+        let jogadaPossiveis = this.gerarMapaMovimentos(this.pecaSelecionada);
+
+        // Seleciona a posição da peça
+        let pos;
+
+        if(peca.localName == 'img'){
+            pos = peca.parentElement.id;
+        }else if(peca.localName == 'figure'){
+            pos = peca.id;
+        }else{
+            pos = null
+        }
+
+        // Entra aqui se for possível fazer alguma jogada
+        if(pos !== null && this.pecaSelecionada !== null && posJogavel(pos, jogadaPossiveis)){
+            console.log("Jogada válida")
+
+            this.fazerJogada({row: this.pecaSelecionada.row, col: this.pecaSelecionada.col}, {row: parseInt(pos[0]), col: parseInt(pos[1])})
+
+            this.pecaSelecionada = null;
+
+            this.carregarPecas();
+
+            if(this.jogadorAtual == 'w'){
+                this.jogadorAtual = 'b'
+            }else{
+                this.jogadorAtual = 'w'
+            }
+        }// Entra aqui quando vai selecionar um peca
+        else if(peca.localName == 'img' && this.jogadorAtual == peca.alt[2]){
             let alt = peca.alt;
 
-            this.pecaSelecionada = {row: parseInt(alt[0]), col: parseInt(alt[1]), cor: alt[2], tipo: alt[3]}
+            this.pecaSelecionada = {row: parseInt(pos[0]), col: parseInt(pos[1]), cor: alt[2], tipo: alt[3]}
             
-        }else{
+        }// Entra aqui quando se clica em outro lugar
+        else{
             this.pecaSelecionada = null;
         }
 
@@ -325,6 +356,23 @@ class Tabuleiro{
         return mapa;
     }
 
+    fazerJogada(origem, dest){
+
+        this.pecas[dest.row][dest.col] = this.pecas[origem.row][origem.col];
+
+        this.pecas[origem.row][origem.col] = null;
+    }
+
+}
+
+function posJogavel(pos, mapa){
+
+    if(pos == null || mapa == null){
+        return false;
+    }
+
+    return mapa[parseInt(pos[0])][parseInt(pos[1])]
+
 }
 
 function lerCor(row, col, tab){
@@ -398,7 +446,7 @@ function iniciarJogo(){
         tabuleiro.selecionarPeca(e.target)
     })
 
-    inserirPeca(tabuleiro)
+    //inserirPeca(tabuleiro)
 
 }
 
