@@ -28,6 +28,10 @@ body{
     width: min(7.5vh, 7.5vw);
 }
 
+.vermelho{
+    background-color: red;
+}
+
 .branco{
     background-color: #b3843d;
 }

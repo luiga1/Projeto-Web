@@ -17,7 +17,9 @@ class Tabuleiro{
 
         this.pecaSelecionada = null
 
-        this.jogadorAtual = 'w'
+        this.corAtual = 'w'
+
+        this.corAdversaria = 'b'
 
         this.pecas = this.iniciarTabuleiro()
 
@@ -79,6 +81,9 @@ class Tabuleiro{
 
         this.div.innerHTML = ''
 
+        let reiBrancoPos = this.getPecaPos({cor: 'w', tipo: 'k'});
+        let reiPretoPos = this.getPecaPos({cor: 'b', tipo: 'k'});
+
         for(let i = 0; i< 8; i++){
             for(let j = 0; j < 8; j++){
 
@@ -91,7 +96,11 @@ class Tabuleiro{
 
                 casaAtual.classList.add('casa')
 
-                if(mapaMovimento[row][col]){
+                if((reiBrancoPos[0].row === i && reiBrancoPos[0].col === j && this.reiEmXeque('w')) || (reiPretoPos[0].row === i && reiPretoPos[0].col === j && this.reiEmXeque('b'))){
+                    casaAtual.classList.add('vermelho')
+                    console.log("AAAAAAAA");
+                }
+                else if(mapaMovimento[row][col]){
                     casaAtual.classList.add('possivel_movimento')
                 }else if((row + col) % 2 == 0){
                     casaAtual.classList.add('branco')
@@ -162,13 +171,15 @@ class Tabuleiro{
 
             this.carregarPecas();
 
-            if(this.jogadorAtual == 'w'){
-                this.jogadorAtual = 'b'
+            if(this.corAtual == 'w'){
+                this.corAtual = 'b'
+                this.corAdversaria = 'w'
             }else{
-                this.jogadorAtual = 'w'
+                this.corAtual = 'w'
+                this.corAdversaria = 'b'
             }
         }// Entra aqui quando vai selecionar um peca
-        else if(peca.localName == 'img' && this.jogadorAtual == peca.alt[2]){
+        else if(peca.localName == 'img' && this.corAtual == peca.alt[2]){
             let alt = peca.alt;
 
             this.pecaSelecionada = {row: parseInt(pos[0]), col: parseInt(pos[1]), cor: alt[2], tipo: alt[3]}
@@ -185,6 +196,8 @@ class Tabuleiro{
 
     gerarMapaMovimentos(peca){
 
+        // peca = {row, col, tipo, cor}
+
         // Gera um mapa de movimentos para cada possível peça
         const tab = this.pecas
 
@@ -196,7 +209,7 @@ class Tabuleiro{
             }
         }
         
-        if(peca == null){
+        if(peca === null){
             return mapa
         }
 
@@ -249,25 +262,25 @@ class Tabuleiro{
             case 'r':
             
                 i = peca.row + 1;
-                while(i < 8 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row + 1 == i || lerCor(i - 1, peca.col, tab) === null)){
+                while(i < 8 && lerCor(i, peca.col, tab) !== peca.cor && (peca.row + 1 == i || lerCor(i - 1, peca.col, tab) === null)){
                     mapa[i][peca.col] = true;
                     i++;
                 }
 
                 i = peca.row - 1;
-                while(i >= 0 && lerCor(i, peca.col, tab) !== this.jogadorAtual && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) === null)){
+                while(i >= 0 && lerCor(i, peca.col, tab) !== peca.cor && (peca.row - 1 == i || lerCor(i + 1, peca.col, tab) === null)){
                     mapa[i][peca.col] = true;
                     i--;
                 }
 
                 j = peca.col + 1;
-                while(j < 8 && lerCor(peca.row, j, tab) !== this.jogadorAtual && (peca.col + 1 == j || lerCor(peca.row, j - 1, tab) == null)){
+                while(j < 8 && lerCor(peca.row, j, tab) !== peca.cor && (peca.col + 1 == j || lerCor(peca.row, j - 1, tab) == null)){
                     mapa[peca.row][j] = true;
                     j++;
                 }
                 
                 j = peca.col - 1;
-                while(j >= 0 && lerCor(peca.row, j, tab) !== this.jogadorAtual && (peca.col - 1 == j || lerCor(peca.row, j + 1, tab) == null)){
+                while(j >= 0 && lerCor(peca.row, j, tab) !== peca.cor && (peca.col - 1 == j || lerCor(peca.row, j + 1, tab) == null)){
                     mapa[peca.row][j] = true;
                     j--;
                 }
@@ -283,7 +296,7 @@ class Tabuleiro{
                         i = peca.row + combinacoes[k];
                         j = peca.col + combinacoes[l];
 
-                        while(j < 8 && i < 8 && j >= 0 && i >= 0 && lerCor(i, j, tab) !== this.jogadorAtual && (peca.col + combinacoes[l] == j || lerCor(i - combinacoes[k], j - combinacoes[l], tab) == null)){
+                        while(j < 8 && i < 8 && j >= 0 && i >= 0 && lerCor(i, j, tab) !== peca.cor && (peca.col + combinacoes[l] == j || lerCor(i - combinacoes[k], j - combinacoes[l], tab) == null)){
                             mapa[i][j] = true;
                             i += combinacoes[k];
                             j += combinacoes[l];
@@ -323,7 +336,7 @@ class Tabuleiro{
                     for(l in possibilidades){
                         i = peca.row + possibilidades[k];
                         j = peca.col + possibilidades[l];
-                        if(lerCor(i, j, this.pecas) !== this.jogadorAtual && i >= 0 && j >=0 && i < 8 && j < 8 && (possibilidades[k] != 0 || possibilidades[l] != 0)){
+                        if(lerCor(i, j, this.pecas) !== peca.cor && i >= 0 && j >=0 && i < 8 && j < 8 && (possibilidades[k] != 0 || possibilidades[l] != 0)){
                             mapa[i][j] = true;
                         }
                     }
@@ -340,7 +353,7 @@ class Tabuleiro{
                     for(l in possib){
                         i = peca.row + possib[k];
                         j = peca.col + possib[l];
-                        if(lerCor(i, j, this.pecas) !== this.jogadorAtual && i >= 0 && j >=0 && i < 8 && j < 8 && Math.abs(possib[k]) !== Math.abs(possib[l])){
+                        if(lerCor(i, j, this.pecas) !== peca.cor && i >= 0 && j >=0 && i < 8 && j < 8 && Math.abs(possib[k]) !== Math.abs(possib[l])){
                             mapa[i][j] = true;
                         }
                     }
@@ -357,6 +370,69 @@ class Tabuleiro{
         this.pecas[dest.row][dest.col] = this.pecas[origem.row][origem.col];
 
         this.pecas[origem.row][origem.col] = null;
+    }
+
+    getPecaPos(peca){
+
+        // Recebe a cor e o tipo da peca
+
+        let pecas = []
+
+        for(let linha in this.pecas){
+            for(let coluna in this.pecas[linha]){
+                if(this.pecas[linha][coluna] === null){
+                    continue;
+                }
+
+                if(this.pecas[linha][coluna].cor === peca.cor && this.pecas[linha][coluna].tipo === peca.tipo){
+                    pecas.push({row: linha, col: coluna});
+                }   
+            }
+        }
+
+        return pecas
+    }
+
+    estaSobAtaque(pos, cor){
+
+        //pos: {row, col}
+        
+        for(let linha = 0; linha < 8; linha++){
+            for(let coluna = 0; coluna < 8; coluna++){
+
+                let atual = this.pecas[linha][coluna];
+
+                if(atual === null){
+                    continue;
+                }
+                if(atual.cor !== cor){
+                    continue;
+                }
+
+                let mapa = this.gerarMapaMovimentos({row: linha, col: coluna, cor: atual.cor, tipo: atual.tipo});
+
+                if(mapa[pos.row][pos.col]){
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
+    reiEmXeque(cor){
+
+        let reiPos = this.getPecaPos({cor: cor, tipo: 'k'});
+
+        let corAdversario;
+
+        if(cor === 'w'){
+            corAdversario = 'b';
+        }else{
+            corAdversario = 'w';
+        }
+
+        return this.estaSobAtaque(reiPos[0], corAdversario);
     }
 
 }
@@ -440,8 +516,16 @@ function iniciarJogo(){
     tabuleiro.div.addEventListener('click', (e) =>{
 
         tabuleiro.selecionarPeca(e.target)
+
+        console.log(tabuleiro.reiEmXeque('w'));
+        console.log(tabuleiro.reiEmXeque('b'));
     })
 
     //inserirPeca(tabuleiro)
 }
 
+// TODOS:
+
+// Checar por xeque
+// Parar o jogo apos o xeque-mate
+// Adicionar o rocke
