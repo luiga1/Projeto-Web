@@ -1,0 +1,251 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+body {
+    
+    height: 100%;
+    display: grid;
+    text-align: center;
+    }
+
+.principal {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto 1fr auto; /* header - conteúdo - footer */
+    grid-template-areas: "header header" "aside section" "footer footer";
+    min-height: 100vh;
+    width: 100%;
+}
+
+.foto {
+
+    position: absolute;
+    top: 44%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: auto;
+
+}
+
+.fonte {
+
+    font-size: 25px;
+    font-family: Arial;
+    color:white;
+}
+
+.categorias {
+
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(1, 60, 96, 1);
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+}
+
+.nozes {
+
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(1, 60, 96, 1);
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    margin-top: 80px;
+}
+
+
+.gith {
+
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(1, 60, 96, 1);
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    margin-top: 80px;
+}
+
+.logo {
+
+    background-color: rgba(1, 60, 96, 1);
+    color: white;
+    font-size: 35px;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 5%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+    margin-right: 10px;
+
+    position: absolute;
+    left: 7%;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    text-align: center;
+    align-items: center
+}
+
+.menu_icone{
+
+    background-color: rgba(10, 98, 250, 1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 2%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+.barra_pesquisa {
+
+    background-color: whitesmoke;
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 40%;
+    height: 30%;
+    margin: 0 auto;
+    display: flex;
+
+    position: absolute;
+    left: 33%;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.pessoal{
+
+    background-color: rgba(10, 98, 250, 1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 2%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+
+    position: absolute;
+    left: 97%;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.divzona {
+
+    display: flex;
+    flex-direction: column;      /* empilha elementos */
+    align-items: flex-start; 
+    grid-template-columns: repeat(3, auto); 
+    grid-auto-rows: 150px;                 
+    gap: 20px;                             
+
+    width: 70%;
+    height: 80%;
+    background: white;
+    padding: 20px;
+
+    place-items: center;
+    justify-self: end;
+}
+
+.nome {
+    
+    font-family: helvetica;
+    text-align: center;
+    font-size: 80px;
+    color:black;
+    margin: 0;
+}
+
+.icones{
+
+    display: flex;               /* organiza os ícones horizontalmente */
+    gap: 15px;                   /* espaço entre cada ícone */
+    justify-content: flex-start; /* alinha à esquerda */
+    align-items: center;
+}
+
+.descricao{
+
+    text-align: left;
+    font-size: 50px;
+    color:aliceblue;
+    background-color: rgba(51, 77, 43, 1);
+    height: 1000px;
+    width: 85%;
+}
+
+header {
+
+    grid-area: header;
+    background-color: rgba(207, 226, 231, 1);
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 140px;
+
+    padding: 0 40px;            /* espaçamento lateral */
+}
+
+section {
+
+    display: grid;
+    grid-area: section;
+    place-items: center;
+    
+}
+
+aside {
+
+    grid-area: aside;
+    background-color:rgba(38, 102, 127, 1);
+    
+    flex-direction: column;
+    display: flex;              /* ativa o flexbox */
+    justify-content: center;    /* centraliza horizontalmente */
+    align-items: center;
+}
+
+footer {
+
+    grid-area: footer;
+    background-color: rgba(207, 226, 231, 1);
+    display: flex;
+    align-items: center;       /* centraliza verticalmente o conteúdo */
+    justify-content: center;   /* centraliza horizontalmente o conteúdo */
+    height: 80px;              /* altura fixa do footer */
+    padding: 0 20px;           /* espaçamento interno */
+}
+
