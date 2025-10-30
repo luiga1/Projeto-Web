@@ -1,0 +1,41 @@
+[
+    {
+        "nome": "Xadrez Js",
+        "criador": "Filipe S.",
+        "link": "../jogos/xadrez_filipe/pages/index.html",
+        "img-horizontal": "",
+        "img-vertical": "", 
+        "linguagem": "JavaScript",
+        "desc": "Um simples jogo de Xadrez feito em HTML, CSS e JavaScript puro."
+    },
+
+    {
+        "nome": "Jogo Musical",
+        "criador": "Artur Vinícius",
+        "link": "",
+        "img-horizontal": "",
+        "img-vertical": "", 
+        "linguagem": "C",
+        "desc": "Esse jogo tem como objetivo desenvolver um pouco a habilidadde do criador dele de criar jogos. É um simples jogo de adivinhação de música, com 7 músicas no total."
+    },
+
+    {
+        "nome": "FrontEnd Brothers",
+        "criador": "Filipe S.",
+        "link": "",
+        "img-horizontal": "",
+        "img-vertical": "", 
+        "linguagem": "C",
+        "desc": ""
+    },
+
+    {
+        "nome": "Jogo da Cobrinha",
+        "criador": "Arthur h.",
+        "link": "",
+        "img-horizontal": "",
+        "img-vertical": "", 
+        "linguagem": "JavaScript",
+        "desc": ""
+    }
+]
