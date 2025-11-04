@@ -1,11 +1,10 @@
 body{
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr;
 }
 
 .corpo{
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
 }
 
 img{
@@ -18,13 +17,13 @@ img{
     grid-template-columns: 3fr 1fr;
     gap: 3vw 3vh;
     padding: 3vw;
-    padding-top: 12vh;
+    padding-top: 2vh;
 }
 
 .img-game{
     display: flex;
-    height: auto;
-    width: 100%;
+    height: 100%;
+    width: auto;
 }
 
 .side-game{
@@ -58,4 +57,36 @@ img{
     display: flex;
     height: 25px;
     width: auto;
+}
+
+@media (max-width: 1024px){
+    .page {
+        /* Tablet: Ainda lado a lado, talvez mais apertado */
+        grid-template-columns: 1fr 15%; 
+        padding: 2vw;
+        gap: 2vw 2vh;
+    }
+}
+
+@media (max-width: 768px){
+/* 1. Body: Sidebar some ou vai para o topo/fundo */
+    body {
+        grid-template-columns: 1fr; /* Coluna única */
+    }
+
+    /* 2. Page: Conteúdo e Sidebar empilham */
+    .page {
+        grid-template-columns: 1fr; /* Coluna única: 3fr e 1fr se empilham */
+        padding: 3vh 2vw; /* Ajusta o padding para telas menores */
+        gap: 2vh; /* Reduz o espaçamento */
+    }
+    
+    /* 3. Ajuste de Fontes (Opcional) */
+    .description {
+        font-size: 1em; 
+    }
+
+    .capa-game{
+        height: 30%;
+    }
 }
