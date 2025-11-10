@@ -13,6 +13,26 @@ async function carregaListaJogos(){
     }
 }
 
+function carregaJogos(){
+
+    let div = document.querySelector('.carrocel-inferior');
+
+    for(let i = 0; i < Listajogos.length; i++){
+        const jogoAtual = Listajogos[i];
+        
+        const urlImg = jogoAtual["img-vertical"] || '';
+
+        div.innerHTML += `
+            <article class="ci-jogos">
+                <div class="ci-imagem" style="background-image: url('${urlImg}');"></div>
+                <span class="ci-titulo"><h3>${jogoAtual["nome"]}</h3></span>
+                <button class="ci-btn"><h3>Jogar</h3></button>
+            </article>
+        `
+    }
+
+}
+
 function carregaCarrocel(){
     const carrocel_img = document.querySelectorAll('.img-jogos');
     const carrocel_titulos = document.querySelectorAll('.carrocel-titulos');
@@ -45,4 +65,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     Listajogos = await carregaListaJogos();
 
     carregaCarrocel();
+
+    carregaJogos();
 });
