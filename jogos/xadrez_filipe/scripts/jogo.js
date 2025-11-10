@@ -84,6 +84,9 @@ class Tabuleiro{
         let reiBrancoPos = this.getPecaPos({cor: 'w', tipo: 'k'});
         let reiPretoPos = this.getPecaPos({cor: 'b', tipo: 'k'});
 
+        let reiBrancoExiste = reiBrancoPos.length > 0;
+        let reiPretoExiste  = reiPretoPos.length > 0;
+
         for(let i = 0; i< 8; i++){
             for(let j = 0; j < 8; j++){
 
@@ -96,12 +99,12 @@ class Tabuleiro{
 
                 casaAtual.classList.add('casa')
 
-                if((reiBrancoPos[0].row === i && reiBrancoPos[0].col === j && this.reiEmXeque('w')) || (reiPretoPos[0].row === i && reiPretoPos[0].col === j && this.reiEmXeque('b'))){
-                    casaAtual.classList.add('vermelho')
-                    console.log("AAAAAAAA");
-                }
-                else if(mapaMovimento[row][col]){
+                if(mapaMovimento[row][col]){
                     casaAtual.classList.add('possivel_movimento')
+                }
+                else if ((reiBrancoExiste && reiBrancoPos[0].row === i && reiBrancoPos[0].col === j && this.reiEmXeque('w')) ||
+                    (reiPretoExiste  && reiPretoPos[0].row  === i && reiPretoPos[0].col  === j && this.reiEmXeque('b'))) {
+                    casaAtual.classList.add('vermelho')
                 }else if((row + col) % 2 == 0){
                     casaAtual.classList.add('branco')
                 }else{
@@ -385,7 +388,7 @@ class Tabuleiro{
                 }
 
                 if(this.pecas[linha][coluna].cor === peca.cor && this.pecas[linha][coluna].tipo === peca.tipo){
-                    pecas.push({row: linha, col: coluna});
+                    pecas.push({row: parseInt(linha, 10), col:parseInt(coluna, 10)});
                 }   
             }
         }
@@ -432,7 +435,17 @@ class Tabuleiro{
             corAdversario = 'w';
         }
 
+        if (reiPos.length === 0) return false;
+
         return this.estaSobAtaque(reiPos[0], corAdversario);
+    }
+
+    jogoAcabou(){
+
+        let reiBrancoPos = this.getPecaPos({cor: 'w', tipo: 'k'});
+        let reiPretoPos = this.getPecaPos({cor: 'b', tipo: 'k'});
+
+        return (reiBrancoPos.length === 0 || reiPretoPos.length === 0);
     }
 
 }
@@ -515,10 +528,8 @@ function iniciarJogo(){
     // É chamado quando alguém clica no tabuleiro
     tabuleiro.div.addEventListener('click', (e) =>{
 
-        tabuleiro.selecionarPeca(e.target)
+        if(!tabuleiro.jogoAcabou()) tabuleiro.selecionarPeca(e.target);
 
-        console.log(tabuleiro.reiEmXeque('w'));
-        console.log(tabuleiro.reiEmXeque('b'));
     })
 
     //inserirPeca(tabuleiro)
@@ -526,6 +537,4 @@ function iniciarJogo(){
 
 // TODOS:
 
-// Checar por xeque
-// Parar o jogo apos o xeque-mate
 // Adicionar o rocke
