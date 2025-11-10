@@ -178,19 +178,7 @@ main{
     margin-left: 260px; 
 }
 
-
-@media (max-width: 1300px) {
-    
-    .jogo-menor{
-        display: none;
-    }
-
-    .carrocel-jogos{
-        display: flex;
-    }
-}
-
-@media (max-width: 1050px){
+@media (max-width: 770px){
 
     main{
        margin-left: 20px; 

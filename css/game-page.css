@@ -5,6 +5,8 @@ body{
 
 .corpo{
     display: flex;
+    align-items: center;
+    justify-items: center;
 }
 
 img{
@@ -21,10 +23,15 @@ img{
 }
 
 .img-game{
-    display: flex;
     height: 100%;
     width: auto;
 }
+
+.gamef{
+    height: 100%;
+    width: 100%;
+}
+
 
 .side-game{
     display: grid;
@@ -35,7 +42,6 @@ img{
 .description{
     display: flex;
     font-family: 'Times New Roman', Times, serif;
-    margin-top: 3%;
 }
 
 .capa-game{

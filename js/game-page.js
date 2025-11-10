@@ -44,7 +44,8 @@ function addComent() {
     console.log('comentario adicionado!');
 
 }
-
+/**
+ * 
 window.addEventListener('scroll', () => {
     // Altura total da página (incluindo a parte não visível)
     const documentHeight = document.documentElement.scrollHeight;
@@ -64,6 +65,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+ */
 /**
  <div class="coment">
                     <div class="coment-head">
