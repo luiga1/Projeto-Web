@@ -1,6 +1,8 @@
+// TODO: Resolver bug de tamanho quando a janela muda de tamanho
+
 function esconde_aside(){
 
-    document.querySelector('#aside').style.display = 'none';
+    document.querySelector('aside').style.display = 'none';
 
     document.querySelector('main').style.marginLeft = '20px';
 
@@ -11,7 +13,7 @@ function mostrar_aside(){
 
     let largura = window.innerWidth;
 
-    const aside = document.querySelector('#aside');
+    const aside = document.querySelector('aside');
 
     if(window.getComputedStyle(aside).getPropertyValue('display') == 'none'){
 

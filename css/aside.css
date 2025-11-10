@@ -50,8 +50,3 @@ aside a:hover, .btn-x:hover{
     font-size: 1rem;
 }
 
-@media (min-width: 770px){
-    .login-fav{
-        display: none;
-    }
-}

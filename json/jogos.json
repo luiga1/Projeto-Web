@@ -3,8 +3,8 @@
         "nome": "Xadrez Js",
         "criador": "Filipe S.",
         "link": "../jogos/xadrez_filipe/pages/index.html",
-        "img-horizontal": "",
-        "img-vertical": "", 
+        "img-horizontal": "../jogos/xadrez_filipe/banner_deitado.png",
+        "img-vertical": "../jogos/xadrez_filipe/banner_em_pe.png", 
         "linguagem": "JavaScript",
         "desc": "Um simples jogo de Xadrez feito em HTML, CSS e JavaScript puro."
     },

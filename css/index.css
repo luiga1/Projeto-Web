@@ -2,6 +2,10 @@
     display: flex;
 
     margin-top: 100px;
+
+    /* Solução bug de margin*/
+
+    width: 99vw;
 }
 
 #cabecalho{
@@ -9,7 +13,7 @@
     top: 0;
 }
 
-#aside{
+aside{
     position: fixed;
     left: 0;
 }
@@ -170,13 +174,17 @@ h1{
     background-color: #90fdbf;
 }
 
+main{
+    margin-left: 260px; 
+}
+
 @media (max-width: 770px){
 
     main{
        margin-left: 20px; 
     }
 
-    #aside{
+    aside{
         display: none;
     }
 }
