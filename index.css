@@ -1,0 +1,190 @@
+.container-principal{
+    display: flex;
+
+    margin-top: 100px;
+
+    /* Solução bug de margin*/
+
+    width: 99vw;
+}
+
+#cabecalho{
+    position: fixed;
+    top: 0;
+}
+
+aside{
+    position: fixed;
+    left: 0;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    border-radius: 0 0 10px 10px;
+    margin-right: 20px;
+    text-align: center;
+
+    flex: 1;
+    justify-items: center;
+}
+
+h1{
+    margin: 2rem 0 1rem 0;
+}
+
+.carrocel{
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrocel-jogos{
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+
+    margin: 0 2rem;
+
+}
+
+.jogo-maior{
+    grid-row: 1 / 3;
+
+    height: 360px;
+    width: 600px;
+}
+
+.jogo-menor{
+    font-size: 0.5rem;
+}
+
+.jogos{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-carrocel{
+
+    color: white;
+    background-color: black;
+    font-size: 2rem;
+    border: none;
+    padding: 2rem 0.75rem;
+    border-radius: 5px;
+    font-weight: bolder;
+
+}
+
+.btn-carrocel:hover{
+    text-decoration: underline;
+}
+
+.img-jogos{
+    flex: 1;
+    background-image: url('../imagens/stardew-valley\ gameplay.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.titulo-jogos{
+    height: 25%;
+    width: 100%;
+    background-color: #A0B6CE;
+    border-radius: 0 0 10px 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 2rem;
+
+    font-size: 2em;
+}
+
+.titulo-jogos button{
+    font-size: 0.75em;
+
+    padding: 0.25em 0.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #3EEC8A;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.titulo-jogos button:hover{
+    background-color: #90fdbf;
+}
+
+/* Carrocel inferior*/
+
+.carrocel-inferior{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+
+    margin-bottom: 4rem;
+}
+
+.ci-jogos{
+    width: 225px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ci-imagem{
+    height: 300px;
+
+    /*background-image: url('../imagens/stardew-valley.jpg');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.ci-titulo{
+    background-color: #A0B6CE;
+    padding: 0.25rem 0;
+}
+
+.ci-btn{
+    background-color: #3EEC8A;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    padding: 0.25rem 0;
+}
+
+.ci-btn:hover{
+    background-color: #90fdbf;
+}
+
+main{
+    margin-left: 260px; 
+}
+
+@media (max-width: 770px){
+
+    main{
+       margin-left: 20px; 
+    }
+
+    aside{
+        display: none;
+    }
+}
