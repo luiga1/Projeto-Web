@@ -1,4 +1,23 @@
-// TODO: Resolver bug de tamanho quando a janela muda de tamanho
+window.addEventListener('resize', () =>{
+
+    let largura = window.innerWidth;
+
+    if(largura < 1050){
+        esconde_aside()
+    }else{
+        const aside = document.querySelector('aside');
+
+        aside.style.display = 'flex';
+
+        if(largura < 1050){
+            document.querySelector('main').style.marginLeft = '20px';
+        }else{
+            document.querySelector('main').style.marginLeft = '260px';
+        }
+
+        //console.log("Aside mostrado");
+    }
+})
 
 function esconde_aside(){
 
@@ -6,7 +25,7 @@ function esconde_aside(){
 
     document.querySelector('main').style.marginLeft = '20px';
 
-    console.log("Aside escondido");
+    //console.log("Aside escondido");
 }
 
 function mostrar_aside(){
@@ -19,7 +38,7 @@ function mostrar_aside(){
 
         aside.style.display = 'flex';
 
-        if(largura < 790){
+        if(largura < 1050){
             document.querySelector('main').style.marginLeft = '20px';
         }else{
             document.querySelector('main').style.marginLeft = '260px';
