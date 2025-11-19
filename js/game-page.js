@@ -5,100 +5,99 @@ function addSpan() {
     console.log('Span adicionado!');
 }
 
-function addComent() {
+function renderizarCard(nome, mensagem, idAvatar) {
     //coment head + span(coment);
-    const container = document.getElementById('container');
-    const newDiv = document.createElement('div');
-    const comentHead = document.createElement('div');
-    const newSpan = document.createElement('span');
+    const lista = document.getElementById('commentList');
+    const card = document.createElement('div');
 
-    newDiv.className = 'coment'; //define a classe 
-    newDiv.id = 'coment'; // define o id da div
+    //cria um elemento novo
+    card.classList.add('comment-card');
 
-    comentHead.className = 'coment-head';
-    comentHead.id = 'coment-head';
+    const avatarId = idAvatar || Math.floor(Math.random() * 1000);
 
-    //img + spam
+    //usa o link da api e coloca o avatar id para manter o mesmo
+    const avatarUrl = 'https://avatar.iran.liara.run/public?v=${avatarId}';
 
-    newSpan.textContent = 'comentairio';
-    newSpan.className = 'user-coment';
+    const dataAtual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    const nomeUsuario = document.createElement('span'); // cria o nome do usuario
-    nomeUsuario.className = 'user-name';
-    nomeUsuario.textContent = 'nomezinho safado';
+    card.innerHTML = `
+    <img src="${avatarUrl}" class="avatar" alt="Avatar">
+    <div class="comment-content">
+      <h4>${nome} <span class="date-posted">às ${dataAtual}</span></h4>
+      <p>${mensagem}</p>
+    </div>
+  `;
 
-    const uimg = document.createElement('img'); // cria a imagem do comentario
-    uimg.src = 'https://i.pravatar.cc/100';
-    uimg.alt = 'usuario';
-    uimg.className = 'user-picture';
-
-    comentHead.appendChild(uimg);
-    comentHead.appendChild(nomeUsuario);
-
-    // agr cria a div maior do comentario
-
-    newDiv.appendChild(comentHead); // cria uma div q tem o nome e img
-    newDiv.appendChild(newSpan); // cria uma div q tenha o comentario
-
-    container.appendChild(newDiv);
-    console.log('comentario adicionado!');
-
+  //adiciona no topo dos comentarios
+    lista.prepend(card);
 }
-/**
- * 
-window.addEventListener('scroll', () => {
-    // Altura total da página (incluindo a parte não visível)
-    const documentHeight = document.documentElement.scrollHeight;
 
-    // Posição atual do scroll do topo da página
-    const scrollPosition = window.scrollY;
 
-    // Altura da janela de visualização do navegador
-    const windowHeight = window.innerHeight;
-
-    // Verifica se o usuário chegou próximo ao final da página. 
-    // A margem de 50px é para que o novo elemento seja adicionado 
-    // um pouco antes do final, evitando que o usuário precise rolar
-    // exatamente até o último pixel.
-    if (scrollPosition + windowHeight >= documentHeight - 150) {
-        addComent();
+// --- NOVA FUNÇÃO PARA BUSCAR O ARQUIVO ---
+async function carregarComentariosDoArquivo() {
+    try {
+      // 1. O fetch vai "buscar" o arquivo
+      const resposta = await fetch('/json/comentarios.json');
+      
+      // 2. Convertemos a resposta para JSON "legível" pelo JS
+      const dados = await resposta.json();
+  
+      // 3. Inverter ordem para o mais recente visualmente ficar por último na iteração
+      const dadosInvertidos = dados.reverse();
+  
+      // 4. Para cada item do JSON, desenhamos o card
+      dadosInvertidos.forEach(item => {
+        renderizarCard(item.nome, item.mensagem, item.id);
+      });
+  
+    } catch (erro) {
+      console.error("Erro ao carregar o JSON:", erro);
+      alert("Não foi possível carregar os comentários. Você está usando um servidor local?");
     }
-});
+  }
+  
+  // Inicia tudo quando a página carregar
+  
 
- */
-/**
- <div class="coment">
-                    <div class="coment-head">
-                        <div class="user-picture"><img src="../imagens/free-user-icon-svg.webp"></div> <!--src="https://i.pravatar.cc/50"-->
-                        <div class="user-name"><span>nome completo da silva</span></div>
-                    </div>
+function adicionarComentario() {
+    // 1. Pegar os valores
+    const nome = document.getElementById('nameInput').value;
+    const mensagem = document.getElementById('messageInput').value;
+    const lista = document.getElementById('commentList');
 
-                    <div class="user-coment">
-                        <span>comentario complexo sobre o jogo</span>
-                    </div>
+    // Validação simples
+    if (nome === "" || mensagem === "") {
+        alert("Por favor, preencha todos os campos!");
+        return;
+    }
 
-                </div>
- */
+    // 2. Criar o elemento do comentário (Card)
+    const card = document.createElement('div');
+    card.classList.add('comment-card');
 
-/**
- * function addComenthead(name){
-    const newDiv = document.createElement('div');
-    newDiv.className = 'coment-head'; //define a classe 
-    newDiv.id = 'coment-head'; // define o id da div
+    // um numero aleatorio é gerado para ser diferente toda vez
+    const randomId = Math.floor(Math.random() * 1000);
+    const avatarUrl = `https://avatar.iran.liara.run/public?v=${randomId}`;
 
-    const img = document.createElement('img'); // cria a imagem do comentario
-    img.src = '../imagens/free-user-icon-svg.webp';
-    img.alt = usuario;
-    img.className = 'user-picture';
+    // Pegar a hora atual
+    const dataAtual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    const nomeUsuario = document.createElement('span');
-    nomeUsuario.className = 'user-name';
-    nomeUsuario.textContent = name;
+    // 3. Montar o HTML interno do card
+    // Usamos Template Strings (essas crases ``) para facilitar
+    card.innerHTML = `
+      <div class="avatar-placeholder">${inicial}</div>
+      <div class="comment-content">
+        <h4>${nome} <span class="date-posted">às ${dataAtual}</span></h4>
+        <p>${mensagem}</p>
+      </div>
+    `;
 
-    newDiv.appendChild(img);
-    newDiv.appendChild(nomeUsuario);
-    console.log('nome e imagem adicionado');
+    // 4. Adicionar na lista (no topo)
+    lista.prepend(card);
 
+    // 5. Limpar os campos
+    document.getElementById('nameInput').value = "";
+    document.getElementById('messageInput').value = "";
 }
- 
- */
+
+window.onload = carregarComentariosDoArquivo;
