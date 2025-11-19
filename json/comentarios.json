@@ -1,0 +1,17 @@
+[
+    {
+      "id": 201,
+      "nome": "Ana Clara",
+      "mensagem": "Carregar via JSON é muito mais profissional!"
+    },
+    {
+      "id": 202,
+      "nome": "Carlos Dev",
+      "mensagem": "Agora sim, separação de dados e código."
+    },
+    {
+      "id": 203,
+      "nome": "Marina Web",
+      "mensagem": "O avatar continua funcionando perfeitamente."
+    }
+  ]
