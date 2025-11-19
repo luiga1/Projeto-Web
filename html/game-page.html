@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +13,14 @@
 </head>
 
 <body>
-    
-    
-     <div id="cabecalho"></div>
+
+
+    <div id="cabecalho"></div>
 
 
     <div class="corpo">
 
-       <div id="aside"></div>
+        <div id="aside"></div>
 
         <div class="page">
 
@@ -31,8 +32,8 @@
 
                 <div class="description">
                     <span>
-                        frases frases...
-                        <button onclick="addComent()">add comentario</button>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eius, maiores, laudantium placeat accusantium qui amet quisquam fugit reprehenderit odit, dolor rerum ullam voluptates laborum unde. Harum sed soluta nulla!</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta culpa accusantium libero officiis voluptatem odit, cum fuga laborum quis iusto, recusandae doloremque enim doloribus quam obcaecati. Tenetur minus sapiente culpa?</p>
                     </span>
                 </div>
 
@@ -44,17 +45,31 @@
                 </div>
 
             </div>
-            
-            
+
+
             <div class="coments" id="container">
-                <!-- aqui vai os comentarios criados pelo js -->
+
+                <spam class="title">Deixe seu comentário ✨</spam>
+
+                <div class="comment-form">
+                    <input type="text" id="nameInput" placeholder="Seu nome" autocomplete="off">
+                    <textarea id="messageInput" placeholder="O que você achou?" rows="3"></textarea>
+                    <button onclick="adicionarComentario()">Enviar Comentário</button>
                 </div>
+
+                <div id="commentList" class="comment-list">
+
+
+                </div>
+
+                <!-- aqui vai os comentarios criados pelo js -->
+            </div>
 
 
         </div>
 
     </div>
-    
+
 </body>
 <script src="../js/carrega_header.js"></script>
 <script src="../js/aside.js"></script>
