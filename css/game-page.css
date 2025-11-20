@@ -1,6 +1,8 @@
+
 body{
     display: grid;
     grid-template-columns: 1fr;
+    
 }
 
 .corpo{
@@ -22,8 +24,9 @@ img{
 }
 
 .img-game{
-    height: 100%;
-    width: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantém o formato widescreen automaticamente */
+    background: #000;
 }
 
 .gamef{
@@ -41,6 +44,12 @@ img{
 .description{
     display: flex;
     font-family: 'Times New Roman', Times, serif;
+    padding: 1vh;
+}
+
+.description p{
+  padding: 0.5vh;
+  font-size: 1.5rem;
 }
 
 .capa-game{
@@ -64,13 +73,10 @@ img{
     width: auto;
 }
 
-@media (max-width: 1024px){
-    .page {
-        /* Tablet: Ainda lado a lado, talvez mais apertado */
-        grid-template-columns: 1fr 15%; 
-        padding: 2vw;
-        gap: 2vw 2vh;
-    }
+.coments{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5vh;
 }
 
 @media (max-width: 768px){
@@ -81,7 +87,9 @@ img{
 
     /* 2. Page: Conteúdo e Sidebar empilham */
     .page {
-        grid-template-columns: 1fr; /* Coluna única: 3fr e 1fr se empilham */
+        display: flex; /*tudo se empilha em uma unica coluna*/
+        flex-direction: column;
+        flex-wrap: wrap;
         padding: 3vh 2vw; /* Ajusta o padding para telas menores */
         gap: 2vh; /* Reduz o espaçamento */
     }
@@ -93,6 +101,11 @@ img{
 
     .capa-game{
         height: 30%;
+    }
+
+    .side-game{
+      display:flex;
+      gap:1vh;
     }
 }
 
@@ -136,19 +149,19 @@ img{
   
   /* Estilo do Card de Comentário Individual */
   .comment-card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    background: rgb(194, 230, 231);
+    border-radius: 1.5vw;
+    padding: 1.5vh;
+    margin-bottom: 2vh;
+    box-shadow: 0 0.5vh 0.7vh rgba(0,0,0,0.03);
     display: flex;
-    gap: 15px;
+    gap: 1.5vh;
     animation: fadeIn 0.5s ease; /* Animação de entrada */
   }
   
-  .avatar-placeholder {
-    width: 40px;
-    height: 40px;
+  .avatar {
+    width: auto;
+    height: 7vh;
     background-color: #a29bfe;
     color: white;
     border-radius: 50%;
@@ -160,22 +173,21 @@ img{
   }
   
   .comment-content h4 {
-    margin: 0 0 5px 0;
+    margin: 0 0 0.5vw 0;
     font-size: 1rem;
     color: #2d3436;
   }
   
   .comment-content p {
-    margin: 0;
-    color: #636e72;
-    font-size: 0.95rem;
+    color: #40494d;
+    font-size: 1rem;
     line-height: 1.4;
   }
   
   .date-posted {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #b2bec3;
-    margin-left: 10px;
+    margin-left: 0.5vw;
     font-weight: normal;
   }
   
