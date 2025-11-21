@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit para Array</title>
+</head>
+<body>
+  <h2>Adicionar item ao array</h2>
+
+  <form id="meuForm">
+    <input type="text" id="inputValor" placeholder="Digite algo" required>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h3>Itens armazenados:</h3>
+  <ul id="lista"></ul>
+
+  <script>
+    // Array para armazenar os envios
+    const dados = [];
+
+    // Referências aos elementos do DOM
+    const form = document.getElementById('meuForm');
+    const input = document.getElementById('inputValor');
+    const lista = document.getElementById('lista');
+
+    // Evento de submit do formulário
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o recarregamento da página
+
+      const valor = input.value.trim();
+      if (valor !== "") {
+        dados.push(valor); // Armazena no array
+
+        // Atualiza a lista na tela
+        const li = document.createElement('li');
+        li.textContent = valor;
+        lista.appendChild(li);
+
+        input.value = ""; // Limpa o campo
+      }
+    });
+  </script>
+</body>
+</html>

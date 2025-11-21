@@ -1,0 +1,228 @@
+@media(max-width: 576px){
+    html{
+        display: flex;
+        flex-direction: column;
+        font-size: small;
+        font-size: medium;
+    }
+    header{
+    background-color: #CFE2E7;
+    text-align: center;
+    height: 38px;
+    font-size: xx-large;
+    text-align: left;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu_header{
+    background-color: #0A62FA;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+header input{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+header button{
+    border-radius: 5px;
+}
+
+/*FIM DO HEADER*/
+
+/*MAIN*/
+main{
+    flex: 1;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.topo{
+    font-size: larger;
+}
+
+/*FIM MAIN*/
+
+/*FOOTER*/
+footer{
+    background-color:#CFE2E7;
+    border-radius: 5px;
+    height: 29px;
+}
+footer h2{
+    text-align: center;
+    font-size: small;
+    margin-top: 15px;
+}
+
+/*FIM FOOTER*/
+
+
+/*1.1 ESTILO INPUT DA CAIXA PRINCIPAL*/
+.caixa_principal input{
+    width: 35%;
+    padding: 10px;
+    margin: 15px 0px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+/*1.2 ESTILO BOTES CAIXA PRINCIPAL*/
+.caixa_principal button{
+    margin-top: 45px;
+    max-width: 35%;
+    height: 35px;
+    margin-left: 195px;
+    background-color: #3EEC8A;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: green;
+}
+
+textarea{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.caixa_principal{
+    background-color: #CFE2E7;
+    width: 700px;
+    height: 400px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding-top: 05px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 05px;
+    
+}
+}
+
+/*INICIO DO BODY*/
+body{
+    background-color: white;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /*background-image: url("../img/floresta\ vista\ de\ fora\ classico\ de\ rpg\,\ estilo\ 16-bit\ .jpg");*/
+}
+/*FIM DO BODY */
+
+/*INICIO DO HEADER*/
+header{
+    background-color: #CFE2E7;
+    text-align: center;
+    height: 38px;
+    font-size: xx-large;
+    text-align: left;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu_header{
+    background-color: #0A62FA;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+header input{
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+header button{
+    border-radius: 5px;
+}
+
+/*FIM DO HEADER*/
+
+/*MAIN*/
+main{
+    flex: 1;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.topo{
+    font-size: larger;
+}
+
+/*FIM MAIN*/
+
+/*FOOTER*/
+footer{
+    background-color:#CFE2E7;
+    border-radius: 5px;
+    height: 29px;
+}
+footer h2{
+    text-align: center;
+    font-size: small;
+    margin-top: 15px;
+}
+
+/*FIM FOOTER*/
+
+
+/*1.1 ESTILO INPUT DA CAIXA PRINCIPAL*/
+.caixa_principal input{
+    width: 35%;
+    padding: 10px;
+    margin: 15px 0px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+/*1.2 ESTILO BOTES CAIXA PRINCIPAL*/
+.caixa_principal button{
+    margin-top: 45px;
+    width: 35%;
+    height: 35px;
+    margin-left: 195px;
+    background-color: #3EEC8A;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: green;
+}
+
+textarea{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.caixa_principal{
+    background-color: #CFE2E7;
+    width: 700px;
+    height: 400px;
+    border-style: solid;
+    border-color: black;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding-top: 05px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 05px;
+    
+}
+
+/*FIM CAIXA PRINCIPAL*/
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style_form.css">
+        <title>Estudo criação de site</title>
+    </head>
+    <body>
+        <header><div class="menu_header"> <i class="fa-solid fa-list" id="menu"></i></div> LOGO
+        <input type="search" id="busca_hd" placeholder="Digite o nome do jogo...">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </header>
+        <main>
+    <div class="caixa_principal">
+            <form class="email_senha">
+
+                <p class="topo"><i class="fa-solid fa-book"></i> Nos envie seu Feedback!</p>
+                <!--Nome-->
+                <labe for="nome">Nome:</labe>
+                <input type="text" id="nome" placeholder="Digite seu nome..." required>
+
+                <!--idade-->
+                <labe for="idade">Idade:</labe>
+                <input type="number" id="idade" placeholder="Digite sua idade..." required class="age">
+                <br>
+
+                <!--Email-->
+                <label for="email">Email: </label>
+                <input type="email" id="email" placeholder="Insira o Email" required>
+
+                <!--local-->
+                <label for="local">Localização: </label>
+                <input type="text" id="local" placeholder="Digite sua Localização..." required><br>
+
+                <!--Texto-->
+                <label for=feedback>Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="5" cols="70"  placeholder="Compartilhe seu feedback..." required></textarea>
+
+                <!--Botão-->
+                <button type="submit" class="Entrar">Enviar Feedback</button>
+            </form>
+    </div>
+        </main>
+    <footer> <h2> Desenvolvido por alunos da Unesp-FCT</h2></footer>
+
+    <script language="JavaScript" src="../javascript/script_form.js"></script>
+    <script src="https://kit.fontawesome.com/66741fb6a4.js" crossorigin="anonymous"></script>
+    </body>
+</html>
