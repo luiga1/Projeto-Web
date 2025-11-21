@@ -26,7 +26,7 @@ function carregaJogos(){
             <article class="ci-jogos">
                 <div class="ci-imagem" style="background-image: url('${urlImg}');"></div>
                 <span class="ci-titulo"><h3>${jogoAtual["nome"]}</h3></span>
-                <button class="ci-btn"><h3>Jogar</h3></button>
+                <button class="ci-btn" id="jogo"><h3>Jogar</h3></button>
             </article>
         `
     }

@@ -7,10 +7,8 @@ $(document).ready(function(){
 
 function renderizarCard(nome, mensagem, idAvatar) {
 
-    const avatarId = idAvatar || Math.floor(Math.random() * 1000);
-
     //usa o link da api e coloca o avatar id para manter o mesmo
-    const avatarUrl = `https://avatar.iran.liara.run/public?v=${avatarId}`;
+    const avatarUrl = `https://avatar.iran.liara.run/public?v=${idAvatar}`;
 
     const dataAtual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -67,7 +65,7 @@ function adicionarComentario() {
     }
 
     // um numero aleatorio é gerado para ser diferente toda vez
-    const randomId = Math.floor(Math.random() * 1000);
+    
     renderizarCard(nome,mensagem,randomId);
 
     $("#nameInput").val("");
