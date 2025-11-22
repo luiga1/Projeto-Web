@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", verifica_tamanho);
+document.addEventListener('DOMContentLoaded', verifica_tamanho);
 window.addEventListener('resize', verifica_tamanho);
 
 function verifica_tamanho(){
@@ -12,21 +12,20 @@ function verifica_tamanho(){
         aside.style.display = 'flex';
 
         if(largura < 1050){
-            document.querySelector('main').style.marginLeft = '20px';
+            document.querySelector('.principal').style.gridTemplateColumns = '10px 1fr'
         }else{
-            document.querySelector('main').style.marginLeft = '260px';
+            document.querySelector('.principal').style.gridTemplateColumns = '240px 1fr'
         }
 
         //console.log("Aside mostrado");
     }
 }
 
-
 function esconde_aside(){
 
     document.querySelector('aside').style.display = 'none';
 
-    document.querySelector('main').style.marginLeft = '20px';
+    document.querySelector('.principal').style.gridTemplateColumns = '10px 1fr'
 
     //console.log("Aside escondido");
 }
@@ -42,9 +41,9 @@ function mostrar_aside(){
         aside.style.display = 'flex';
 
         if(largura < 1050){
-            document.querySelector('main').style.marginLeft = '20px';
+            document.querySelector('.principal').style.gridTemplateColumns = '10px 1fr'
         }else{
-            document.querySelector('main').style.marginLeft = '260px';
+            document.querySelector('.principal').style.gridTemplateColumns = '240px 1fr'
         }
 
         console.log("Aside mostrado");
@@ -53,3 +52,4 @@ function mostrar_aside(){
         esconde_aside();
     }
 }
+

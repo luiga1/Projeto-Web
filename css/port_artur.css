@@ -14,7 +14,7 @@ body {
     grid-template-columns: 240px 1fr;
     grid-template-rows: 100px 1fr 80px; /* header - conteúdo - footer */
     grid-template-areas: "header header" "aside section" "footer footer";
-    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
 }
 
@@ -170,8 +170,13 @@ section button {
     grid-auto-rows: 150px;                 
     gap: 20px;                             
 
+    max-width: 1000px;
+
+    /*
     width: 1000px;
     height: 900px;
+    */
+
     background: white;
     padding: 20px;
 
@@ -207,7 +212,6 @@ section button {
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 20px;
 }
 
@@ -216,7 +220,8 @@ section button {
 
     background-color: rgba(217, 217, 217, 1);
     display: grid;
-    width: 450px;
+    
+    max-width: 450px;
     height: 400px;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto auto;
@@ -306,6 +311,7 @@ footer {
 
 @media(max-width: 500px) {
 
+    /*
     .principal {
         display: grid;
         grid-template-columns: 1fr; 
@@ -334,7 +340,7 @@ footer {
        
         overflow-y: auto; 
     }
-
+    */
     
     .hidden {
         transform: translateX(-100%);
@@ -346,7 +352,7 @@ footer {
         display: flex;
         justify-content: center; 
         align-items: flex-start;
-        width: 100%;
+        /*width: 100%;*/
         margin: 0 18px 18px 18px;
     }
 
