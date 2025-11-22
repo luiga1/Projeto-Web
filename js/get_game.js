@@ -11,12 +11,12 @@ async function modficarDOM(){
         $.each(dados, function(index, item){
             if(item.nome == nome){
 
-                $(".capa-game").attr('src', item['img-vertical']);
+                $("#capa-game").attr('src', item['img-vertical']);
                 $("#desc").text(item.desc);
                 $(".gamef").attr('src', item.link);
                 
                 console.log('DOM modificado para:', nome);
-                return;
+                return false;
             }
         });
         

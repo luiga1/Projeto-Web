@@ -66,6 +66,7 @@ function adicionarComentario() {
 
     // um numero aleatorio é gerado para ser diferente toda vez
     
+    const randomId = Math.floor(Math.random() * 1000);
     renderizarCard(nome,mensagem,randomId);
 
     $("#nameInput").val("");
