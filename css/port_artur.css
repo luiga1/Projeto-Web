@@ -6,16 +6,13 @@
 }
 
 body {
-     
-    
-    
     text-align: center;
 }
 
 .principal {
     display: grid;
     grid-template-columns: 240px 1fr;
-    grid-template-rows: 140px 1fr 80px; /* header - conteúdo - footer */
+    grid-template-rows: 100px 1fr 80px; /* header - conteúdo - footer */
     grid-template-areas: "header header" "aside section" "footer footer";
     min-height: 100vh;
     width: 100vw;
@@ -37,11 +34,11 @@ body {
     color:white;
 }
 
-a{
+section a{
     color: white;
 }
 
-a:hover {
+section a:hover {
   color: gray;
   
 } 
@@ -101,7 +98,7 @@ a:hover {
     align-items: center
 }
 
-button {
+section button {
 
     background-color: rgba(10, 98, 250, 1);
     color: white;
@@ -251,7 +248,7 @@ button {
 #azedu.hidden {
     transform: translateX(-100%);
 }
-
+/*
 header {
 
     grid-area: header;
@@ -270,7 +267,7 @@ header {
     padding: 0 40px;            
 }
 
-
+*/
 
 section {
 
@@ -282,6 +279,7 @@ section {
     
 }
 
+/*
 aside {
 
     height: 100%;
@@ -293,7 +291,7 @@ aside {
     justify-content: center;    
     align-items: center;
 }
-
+*/
 footer {
 
     grid-area: footer;
@@ -448,7 +446,7 @@ footer {
         left: 19%;
         font-size: 20px;
     }
-    button { 
+    section button { 
         width: 15%;
         left: 3%;
     }
@@ -495,3 +493,19 @@ footer {
     }
 }
 
+/* Adições do Dengue*/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+aside{
+    position: fixed;
+    left: 0;
+}
+
+section{
+    margin-top: 100px;
+}
