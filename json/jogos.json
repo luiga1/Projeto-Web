@@ -32,10 +32,10 @@
     {
         "nome": "Jogo da Cobrinha",
         "criador": "Arthur h.",
-        "link": "",
-        "img-horizontal": "",
-        "img-vertical": "", 
+        "link": "../jogos/arthur_h/index.html",
+        "img-horizontal": "../jogos/arthur_h/h.webp",
+        "img-vertical": "../jogos/arthur_h/v.webp", 
         "linguagem": "JavaScript",
-        "desc": ""
+        "desc": "Jogo da cobrinha"
     }
 ]
