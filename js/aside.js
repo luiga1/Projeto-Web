@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", verifica_tamanho);
 window.addEventListener('resize', verifica_tamanho);
 
+let Listajogos = [];
+
 function verifica_tamanho(){
     let largura = window.innerWidth;
 
@@ -53,3 +55,4 @@ function mostrar_aside(){
         esconde_aside();
     }
 }
+

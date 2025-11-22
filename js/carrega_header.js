@@ -68,3 +68,10 @@ function tamanho_titulo(){
 document.addEventListener("DOMContentLoaded", tamanho_titulo);
 
 window.addEventListener("resize", tamanho_titulo);
+
+function abrir_jogo(nome){
+
+    sessionStorage.setItem('nomeTransferido', nome);
+    
+    window.location.href = 'game-page.html';
+}
