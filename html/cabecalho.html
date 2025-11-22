@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="../css/cabecalho.css">
     <script src="https://kit.fontawesome.com/6b03521ec2.js" crossorigin="anonymous"></script>
 </head>
+<body>
 
     <header>
 
         <div class="menu-header">
             <button class="botao-menu" onclick="mostrar_aside();"><i class="fa-solid fa-bars fa-2xl"></i></button>
-            <a href="index.html"><h3>Old School Games</h3></a>
+            <a href="index.html"><h3 id="titulo">Old School Games</h3></a>
         </div>
 
         <input type="text" name="pesquisa" placeholder="pesquisa" id="pesquisa">
@@ -19,6 +20,24 @@
         <div class="botoes-header">
             
         </div>
+
+        <script>
+            function tamanho_titulo(){
+                let largura = window.innerWidth;
+
+                if(largura > 670){
+                    document.querySelector("#titulo").innerText = "Old School Games";
+                }else{
+                    document.querySelector("#titulo").innerText = "OSG";
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", tamanho_titulo);
+
+            window.addEventListener("resize", tamanho_titulo);
+        </script>
         
     </header>
+        
+</body>
 </html>

@@ -200,3 +200,41 @@ main{
         display: none;
     }
 }
+
+@media (max-width: 850px){
+
+    .jogo-maior{
+        height: calc((100vw - 150px) * 0.5);
+        width: calc(100vw - 150px);
+        max-width: 600px;
+    }
+
+    .btn-carrocel{
+        font-size: 1rem;
+        padding: 1.5rem 0.56rem;
+    }
+}
+
+@media (max-width: 670px){
+
+    .jogo-maior{
+        font-size: 0.5rem;
+    }
+
+    .btn-carrocel{
+        font-size: 1rem;
+        padding: 1.5rem 0.56rem;
+    }
+}
+
+@media (max-width: 375px){
+
+    .jogo-maior{
+        font-size: 0.25rem;
+    }
+
+    .btn-carrocel{
+        font-size: 0.75rem;
+        padding: 1.25rem 0.47rem;
+    }
+}

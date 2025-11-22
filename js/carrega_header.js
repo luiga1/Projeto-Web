@@ -54,3 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carregarComponente("footer", "rodape.html", "footer");
 });
+
+function tamanho_titulo(){
+    let largura = window.innerWidth;
+
+    if(largura > 670){
+        document.querySelector("#titulo").innerText = "Old School Games";
+    }else{
+        document.querySelector("#titulo").innerText = "OSG";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", tamanho_titulo);
+
+window.addEventListener("resize", tamanho_titulo);
