@@ -196,3 +196,20 @@ img{
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
+/* Adições do Dengue*/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+aside{
+    position: fixed;
+    left: 0;
+}
+
+.corpo{
+    margin-top: 100px;
+}

@@ -6,15 +6,17 @@ function verifica_tamanho(){
     }else{
         const aside = document.querySelector('aside');
 
-        aside.style.display = 'flex';
+        //aside.style.display = 'flex';
 
         if(largura < 1050){
-            document.querySelector('main').style.marginLeft = '20px';
+            document.querySelector('.page').style.marginLeft = '20px';
         }else{
-            document.querySelector('main').style.marginLeft = '260px';
+            document.querySelector('.page').style.marginLeft = '260px';
         }
 
-        //console.log("Aside mostrado");
+        aside.style.display = 'flex';
+
+        console.log("verifica tamanho");
     }
 }
 
@@ -23,7 +25,7 @@ function esconde_aside(){
 
     document.querySelector('aside').style.display = 'none';
 
-    document.querySelector('main').style.marginLeft = '20px';
+    document.querySelector('.page').style.marginLeft = '20px';
 
     //console.log("Aside escondido");
 }
@@ -39,9 +41,9 @@ function mostrar_aside(){
         aside.style.display = 'flex';
 
         if(largura < 1050){
-            document.querySelector('main').style.marginLeft = '20px';
+            document.querySelector('.page').style.marginLeft = '20px';
         }else{
-            document.querySelector('main').style.marginLeft = '260px';
+            document.querySelector('.page').style.marginLeft = '260px';
         }
 
         console.log("Aside mostrado");
@@ -52,4 +54,5 @@ function mostrar_aside(){
 }
 
 document.addEventListener("DOMContentLoaded", verifica_tamanho);
+
 window.addEventListener('resize', verifica_tamanho);
