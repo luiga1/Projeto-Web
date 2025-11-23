@@ -53,21 +53,42 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarComponente("aside", "aside.html", "aside");
 
     carregarComponente("footer", "rodape.html", "footer");
+
+    
 });
 
 function tamanho_titulo(){
     let largura = window.innerWidth;
 
+    const titulo = document.getElementById("titulo");
+    if (titulo === null) return;
+
     if(largura > 670){
-        document.querySelector("#titulo").innerText = "Old School Games";
+        titulo.innerText = "Old School Games";
     }else{
-        document.querySelector("#titulo").innerText = "OSG";
+        titulo.innerText = "OSG";
     }
+
 }
 
-document.addEventListener("DOMContentLoaded", tamanho_titulo);
+function main(){
+    tamanho_titulo()
 
-window.addEventListener("resize", tamanho_titulo);
+    const barra = document.querySelector('#pesquisa')
+
+
+    barra.addEventListener("keydown", (e)=>{
+        if(e.key !== 'Enter')return;
+
+        const texto = barra.value;
+
+        sessionStorage.setItem('pesquisa', texto);
+
+        window.location.href = 'index_busca.html'
+    })
+    
+    
+}
 
 function abrir_jogo(nome){
 
@@ -75,3 +96,7 @@ function abrir_jogo(nome){
     
     window.location.href = 'game-page.html';
 }
+
+
+window.addEventListener("resize", tamanho_titulo);
+document.addEventListener("click", main, {once: true});
