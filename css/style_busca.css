@@ -127,6 +127,7 @@ header{
 
 main{
     margin-top: 100px;
+    margin-left: 240px;
     display: flex;
     /*align-items: center;*/
     justify-content: center;
