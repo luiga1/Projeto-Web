@@ -24,7 +24,7 @@
 
 
             <div class="caixa_principal" id="div_principal">
-                <form class="email_senha">
+                <form class="email_senha" onsubmit="enviar()">
 
                     <p class="topo"><i class="fa-solid fa-book"></i> Nos envie seu Feedback!</p>
                     <!--Nome-->
@@ -38,11 +38,13 @@
 
                     <!--Email-->
                     <label for="email">Email: </label>
-                    <input type="email" id="email" placeholder="Insira o Email" required>
+                    <input type="email" id="email" placeholder="Insira o Email" required><br>
 
                     <!--local-->
-                    <label for="local">Localização: </label>
-                    <input type="text" id="local" placeholder="Digite sua Localização..." required><br>
+                    <label for="latitude">Latitude: </label>
+                    <input type="number" id="latitude" placeholder="Latitude" disabled>
+                    <label for="longitude">Longitude: </label>
+                    <input type="number" id="longitude" placeholder="Longitude" disabled><br>
 
                     <!--Texto-->
                     <label for=feedback>Feedback:</label><br>
@@ -56,10 +58,9 @@
 
         <div id="footer"></div>
 
+        <script src="https://kit.fontawesome.com/66741fb6a4.js" crossorigin="anonymous"></script>
+        <script language="JavaScript" src="../js/script_form.js"></script>
         <script src="../js/carrega_header.js"></script>
         <script src="../js/aside_arthur.js"></script>
-
-        <script language="JavaScript" src="../javascript/script_form.js"></script>
-        <script src="https://kit.fontawesome.com/66741fb6a4.js" crossorigin="anonymous"></script>
     </body>
 </html>
