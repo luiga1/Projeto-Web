@@ -1,3 +1,4 @@
+/*
 @media(max-width: 576px){
     html{
         display: flex;
@@ -33,17 +34,11 @@ header input{
 header button{
     border-radius: 5px;
 }
+*/
 
 /*FIM DO HEADER*/
 
 /*MAIN*/
-main{
-    flex: 1;
-    display: grid;
-    place-items: center;
-    height: 100vh;
-}
-
 .topo{
     font-size: larger;
 }
@@ -51,6 +46,7 @@ main{
 /*FIM MAIN*/
 
 /*FOOTER*/
+/*
 footer{
     background-color:#CFE2E7;
     border-radius: 5px;
@@ -61,6 +57,7 @@ footer h2{
     font-size: small;
     margin-top: 15px;
 }
+*/
 
 /*FIM FOOTER*/
 
@@ -88,25 +85,9 @@ button:hover{
     background-color: green;
 }
 
-textarea{
+main textarea{
     border: 2px solid black;
     border-radius: 5px;
-}
-
-.caixa_principal{
-    background-color: #CFE2E7;
-    width: 700px;
-    height: 400px;
-    border-style: solid;
-    border-color: black;
-    box-sizing: border-box;
-    border-radius: 25px;
-    padding-top: 05px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 05px;
-    
-}
 }
 
 /*INICIO DO BODY*/
@@ -115,12 +96,12 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     /*background-image: url("../img/floresta\ vista\ de\ fora\ classico\ de\ rpg\,\ estilo\ 16-bit\ .jpg");*/
 }
 /*FIM DO BODY */
-
-/*INICIO DO HEADER*/
+/*
+INICIO DO HEADER
 header{
     background-color: #CFE2E7;
     text-align: center;
@@ -150,14 +131,14 @@ header button{
     border-radius: 5px;
 }
 
-/*FIM DO HEADER*/
-
+FIM DO HEADER
+*/
 /*MAIN*/
+
 main{
     flex: 1;
-    display: grid;
-    place-items: center;
-    height: 100vh;
+    
+    display: flex;
 }
 
 .topo{
@@ -167,17 +148,20 @@ main{
 /*FIM MAIN*/
 
 /*FOOTER*/
+
 footer{
     background-color:#CFE2E7;
     border-radius: 5px;
     height: 29px;
+    text-align: center;
 }
+/*
 footer h2{
     text-align: center;
     font-size: small;
     margin-top: 15px;
 }
-
+*/
 /*FIM FOOTER*/
 
 
@@ -222,7 +206,35 @@ textarea{
     padding-right: 20px;
     padding-bottom: 05px;
     
+    margin-top: 50px;
 }
 
 /*FIM CAIXA PRINCIPAL*/
 
+/* MODIFICAÇÕES DO DENGUE*/
+
+header{
+    height: 100px;
+}
+
+main{
+    width: 99vw;
+    align-items : center;
+    justify-content: center;
+}
+
+aside{
+    position: fixed;
+    left: 0;
+    top: 100px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+textarea{
+    resize: none;
+}
