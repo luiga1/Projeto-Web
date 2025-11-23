@@ -4,11 +4,11 @@ function main_busca(){
 
     const titulo = document.querySelector('#titulo-busca');
 
-    const texto = sessionStorage.getItem('pesquisa');
+    let texto = sessionStorage.getItem('pesquisa');
 
-    if(texto === null){
+    if(texto === null || texto === ''){
         titulo.innerText = "Todos os jogos:";
-        return
+        texto = '';
     }else{
         titulo.innerText = `Todos os jogos com a palavra chave "${texto}":`;
     }
@@ -28,6 +28,11 @@ async function carrega_jogos(texto) {
     const dados = await resposta.json();
 
     const jogos_filtrados = dados.filter(item => item["nome"].toLowerCase().includes(texto.toLowerCase().trim()));
+
+    if(jogos_filtrados.length < 1){
+        document.querySelector('#titulo-busca').innerHTML = `Nunhum jogo com "${texto}" encontrado`;
+        return;
+    }
 
     const div = document.querySelector('.lista-jogos-busca')
 

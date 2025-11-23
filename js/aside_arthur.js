@@ -53,5 +53,5 @@ function mostrar_aside(){
     }
 }
 
-document.addEventListener("click", verifica_tamanho, {once: true});
+document.addEventListener("mousemove", verifica_tamanho, {once: true});
 window.addEventListener('resize', verifica_tamanho);
