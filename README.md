@@ -19,7 +19,7 @@ Ele reúne jogos criados pelos alunos, incluindo:
 - Uma versão de **Xadrez** em JavaScript  
 - Um **Jogo da Cobrinha** em JavaScript  
 - Um **Jogo Musical** feito em C
-- **FrontEnd Bros**, também feito em C e convertido com Emscripten  
+- **FrontEnd Bros**, também feito em C
 
 ---
 
@@ -46,13 +46,6 @@ Descrição curta das seções principais:
 
 ---
 
-## 🚀 Deploy
-
-O projeto está publicado na Vercel:
-
-(Adicionar link depois)
-
----
 
 ## 👨‍💻 Tecnologias usadas
 
@@ -61,7 +54,6 @@ O projeto está publicado na Vercel:
 - **JavaScript**
 - **jQuery**
 - **API de Geolocalização**
-- **Emscripten** (para jogos em C)
 
 ---
 
