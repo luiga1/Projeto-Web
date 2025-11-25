@@ -7,7 +7,7 @@ O projeto apresenta uma coleção de jogos clássicos feitos pelos próprios alu
 
 ## 📸 Página inicial
 
-![Página inicial](imagens/index.png)
+![Página inicial](imagens/index_novo.png)
 
 ---
 
@@ -69,3 +69,4 @@ http://projeto-web-beige.vercel.app/
 Projeto desenvolvido como **trabalho final da disciplina**.  
 
 Funcionalidades principais concluídas.
+
