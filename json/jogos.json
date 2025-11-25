@@ -12,9 +12,9 @@
     {
         "nome": "Jogo Musical",
         "criador": "Artur Vinícius",
-        "link": "../jogos/artur_v/download.html",
-        "img-horizontal": "../jogos/artur_v/img_h.jpeg",
-        "img-vertical": "../jogos/artur_v/img_v.jpeg", 
+        "link": "../jogos/arturV/download.html",
+        "img-horizontal": "../jogos/arturV/img_h.jpeg",
+        "img-vertical": "../jogos/arturV/img_v.jpeg", 
         "linguagem": "C",
         "desc": "Esse jogo tem como objetivo desenvolver um pouco a habilidadde do criador dele de criar jogos. É um simples jogo de adivinhação de música, com 7 músicas no total."
     },
@@ -22,9 +22,9 @@
     {
         "nome": "FrontEnd Brothers",
         "criador": "Filipe S.",
-        "link": "../jogos/frontbros/download.html",
-        "img-horizontal": "../jogos/frontbros/img_h.png",
-        "img-vertical": "../jogos/frontbros/img_v.png", 
+        "link": "../jogos/Frontbros/download.html",
+        "img-horizontal": "../jogos/Frontbros/img_h.png",
+        "img-vertical": "../jogos/Frontbros/img_v.png", 
         "linguagem": "C",
         "desc": ""
     },
