@@ -18,7 +18,7 @@ O **Old School Games** é um site criado com **HTML**, **CSS**, **JavaScript** (
 Ele reúne jogos criados pelos alunos, incluindo:
 - Uma versão de **Xadrez** em JavaScript  
 - Um **Jogo da Cobrinha** em JavaScript  
-- Um **Jogo Musical** feito em C e convertido com Emscripten  
+- Um **Jogo Musical** feito em C
 - **FrontEnd Bros**, também feito em C e convertido com Emscripten  
 
 ---

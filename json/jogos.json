@@ -22,9 +22,9 @@
     {
         "nome": "FrontEnd Brothers",
         "criador": "Filipe S.",
-        "link": "",
-        "img-horizontal": "",
-        "img-vertical": "", 
+        "link": "../jogos/frontbros/download.html",
+        "img-horizontal": "../jogos/frontbros/img_h.png",
+        "img-vertical": "../jogos/frontbros/img_v.png", 
         "linguagem": "C",
         "desc": ""
     },
