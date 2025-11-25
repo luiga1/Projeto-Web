@@ -12,9 +12,9 @@
     {
         "nome": "Jogo Musical",
         "criador": "Artur Vinícius",
-        "link": "",
-        "img-horizontal": "",
-        "img-vertical": "", 
+        "link": "../jogos/artur_v/download.html",
+        "img-horizontal": "../jogos/artur_v/img_h.jpeg",
+        "img-vertical": "../jogos/artur_v/img_v.jpeg", 
         "linguagem": "C",
         "desc": "Esse jogo tem como objetivo desenvolver um pouco a habilidadde do criador dele de criar jogos. É um simples jogo de adivinhação de música, com 7 músicas no total."
     },
