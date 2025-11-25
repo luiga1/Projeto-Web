@@ -46,6 +46,13 @@ Descrição curta das seções principais:
 
 ---
 
+## 🚀 Deploy
+
+O projeto está publicado na Vercel:
+
+http://projeto-web-beige.vercel.app/
+
+---
 
 ## 👨‍💻 Tecnologias usadas
 
@@ -60,4 +67,5 @@ Descrição curta das seções principais:
 ## 📚 Status
 
 Projeto desenvolvido como **trabalho final da disciplina**.  
+
 Funcionalidades principais concluídas.
