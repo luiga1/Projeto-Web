@@ -2,16 +2,41 @@
     {
       "id": 96,
       "nome": "Ana Clara da Silva",
-      "mensagem": "Carregar via JSON é muito mais profissional!"
+      "mensagem": "Adorei o jogo, muito bom!"
     },
     {
       "id": 60,
       "nome": "Marina Leone",
-      "mensagem": "Agora sim, separação de dados e código."
+      "mensagem": "estou viciada no jogo! é muito incrivel."
     },
     {
-      "id": 41,
+      "id": 48,
       "nome": "Carlos Birinto",
-      "mensagem": "O avatar continua funcionando perfeitamente."
+      "mensagem": "Acho que faltou um jogo de labirinto."
+    },
+    {
+    "id": 27,
+    "nome": "Eduardo Lima",
+    "mensagem": "Gostei bastante da jogabilidade, muito intuitiva!"
+    },
+    {
+    "id": 55,
+    "nome": "Patrícia Costa",
+    "mensagem": "Alguns momentos travou no meu celular, mas adorei o jogo."
+    },
+    {
+    "id": 64,
+    "nome": "Isabela Moretti",
+    "mensagem": "Melhor jogo que joguei esse ano!"
+    },
+    {
+    "id": 15,
+    "nome": "Thiago Martins",
+    "mensagem": "As missões são bem criativas, parabéns aos desenvolvedores."
+    },
+    {
+    "id": 81,
+    "nome": "Camila Souza",
+    "mensagem": "Queria que tivesse mais personalizações de personagem."
     }
   ]
